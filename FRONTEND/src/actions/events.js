@@ -10,7 +10,7 @@ const eventsUrl = "";
 
 export const getEvents = () => async (dispatch) => {
 	try {
-		const { data } = await Fetch(url);
+		const { data } = await Fetch(eventsUrl);
 
 		dispatch({ type: FETCH_ALL, payload: data });
 	} catch (error) {
@@ -20,7 +20,7 @@ export const getEvents = () => async (dispatch) => {
 
 export const createEvents = (event) => async (dispatch) => {
 	try {
-		const { data } = await Create(event, url);
+		const { data } = await Create(event, eventsUrl);
 
 		dispatch({ type: CREATE, payload: data });
 	} catch (error) {
@@ -30,7 +30,7 @@ export const createEvents = (event) => async (dispatch) => {
 
 export const updateEvents = (id, event) => async (dispatch) => {
 	try {
-		const { data } = await Update(id, event, url);
+		const { data } = await Update(id, event, eventsUrl);
 
 		dispatch({ type: UPDATE, payload: data });
 	} catch (error) {
@@ -40,7 +40,7 @@ export const updateEvents = (id, event) => async (dispatch) => {
 
 export const deleteEvents = (id) => async (dispatch) => {
 	try {
-		await Delete(id, url);
+		await Delete(id, eventsUrl);
 
 		dispatch({ type: DELETE, payload: id });
 	} catch (error) {

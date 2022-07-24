@@ -10,7 +10,7 @@ const blogsUrl = "";
 
 export const getBlogs = () => async (dispatch) => {
 	try {
-		const { data } = await Fetch(url);
+		const { data } = await Fetch(blogsUrl);
 
 		dispatch({ type: FETCH_ALL, payload: data });
 	} catch (error) {
@@ -20,7 +20,7 @@ export const getBlogs = () => async (dispatch) => {
 
 export const createBlogs = (blog) => async (dispatch) => {
 	try {
-		const { data } = await Create(blog, url);
+		const { data } = await Create(blog, blogsUrl);
 
 		dispatch({ type: CREATE, payload: data });
 	} catch (error) {
@@ -30,7 +30,7 @@ export const createBlogs = (blog) => async (dispatch) => {
 
 export const updateBlogs = (id, blog) => async (dispatch) => {
 	try {
-		const { data } = await Update(id, blog, url);
+		const { data } = await Update(id, blog, blogsUrl);
 
 		dispatch({ type: UPDATE, payload: data });
 	} catch (error) {
@@ -40,7 +40,7 @@ export const updateBlogs = (id, blog) => async (dispatch) => {
 
 export const deleteBlogs = (id) => async (dispatch) => {
 	try {
-		await Delete(id, url);
+		await Delete(id, blogsUrl);
 
 		dispatch({ type: DELETE, payload: id });
 	} catch (error) {

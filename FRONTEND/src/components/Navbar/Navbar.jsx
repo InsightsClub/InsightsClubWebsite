@@ -1,62 +1,38 @@
 import React from "react";
 import "./Navbar.css";
-
+//menu-toggler
 function Navbar() {
 	return (
 		<>
-			<nav class='navbar'>
-				<div class='logo'>{/* logo goes here */}</div>
-				<div class='push-left'>
-					<button id='menu-toggler' data-class='menu-active' class='hamburger'>
-						<span class='hamburger-line hamburger-line-top'></span>
-						<span class='hamburger-line hamburger-line-middle'></span>
-						<span class='hamburger-line hamburger-line-bottom'></span>
+			<nav className='navbar'>
+				<div className='logo'>{/* logo goes here */}</div>
+				<div className='push-left'>
+					<button id='menu-toggler' className='hamburger'>
+						<span className='hamburger-line hamburger-line-top'></span>
+						<span className='hamburger-line hamburger-line-middle'></span>
+						<span className='hamburger-line hamburger-line-bottom'></span>
 					</button>
 
-					<ul id='primary-menu' class='menu nav-menu'>
-						<li class='menu-item current-menu-item'>
-							<a class='nav__link' href='#'>
+					<ul id='primary-menu' className='menu nav-menu'>
+						<li className='menu-item current-menu-item'>
+							<a className='nav__link' href='/'>
 								Home
 							</a>
 						</li>
-						<li class='menu-item dropdown'>
-							<a class='nav__link' href='#'>
+						<li className='menu-item dropdown'>
+							<a className='nav__link' href='/events'>
+								Events
+							</a>
+						</li>
+						<li className='menu-item dropdown'>
+							<a className='nav__link' href='/blogs'>
+								Blogs
+							</a>
+						</li>
+						<li className='menu-item dropdown'>
+							<a className='nav__link' href='/about'>
 								About
 							</a>
-							<ul class='sub-nav'>
-								<li>
-									<a class='sub-nav__link' href='#'>
-										Blogs
-									</a>
-								</li>
-								<li>
-									<a class='sub-nav__link' href='#'>
-										Events
-									</a>
-								</li>
-							</ul>
-						</li>
-						<li class='menu-item dropdown'>
-							<a class='nav__link' href='#'>
-								Home
-							</a>
-							<ul class='sub-nav'>
-								<li>
-									<a class='sub-nav__link' href='#'>
-										About
-									</a>
-								</li>
-								<li>
-									<a class='sub-nav__link' href='#'>
-										Blogs
-									</a>
-								</li>
-								<li>
-									<a class='sub-nav__link' href='#'>
-										Events
-									</a>
-								</li>
-							</ul>
 						</li>
 					</ul>
 				</div>
