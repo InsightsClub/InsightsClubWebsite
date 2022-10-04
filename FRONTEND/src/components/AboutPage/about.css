@@ -67,19 +67,23 @@
 }
 
 .faculty-card {
-    width: 300px;
+    width: 400px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
 }
 
 .insights-leads-pfp {
     box-sizing: border-box;
     border-radius: 50%;
     margin-bottom: 10px;
+    width: 250px;
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .insights-leads-name {
@@ -100,16 +104,22 @@
     align-items: flex-end;
     justify-content: space-around;
     flex-wrap: wrap;
+    position: relative;
+    top: -150px;
+}
+
+.insights-president {
+    position: relative;
+    top: -100px;
 }
 
 .insights-leads-card {
-    width: 300px;
+    width: 400px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
 }
 
 .insights-leads-card-heading {
@@ -123,13 +133,6 @@
     text-align: center;
 }
 
-.insights-leads-pfp {
-    width: 100%;
-    aspect-ratio: 1;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 .about-social-links {
     box-sizing: border-box;
     align-self: center;
@@ -137,7 +140,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    width: 80%;
+    width: 60%;
     margin-top: 20px;
 }
 
@@ -155,15 +158,35 @@
     transform: scale(1.2);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
+    .insights-leads-card-group {
+        position: unset;
+        padding: 2%;
+        justify-content: space-between;
+    }
+    .insights-president {
+        position: unset;
+        padding: 0;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 830px) {
+    .insights-leads-card-group, .insights-president {
+        position: unset;
+        padding: 0;
+        justify-content: center;
+    }
+    .insights-leads-card, .faculty-card {
+        margin-bottom: 50px;
+    }
     .about-heading, .faculty-card-heading {
-        font-size: 50px;
+        font-size: 32px;
     }
     .insights-leads-card-heading {
-        font-size: 40px;
+        font-size: 32px;
     }
     .about-text, .insights-leads-name {
-        font-size: 20px;
+        font-size: 18px;
     }
     .about-text > q {
         font-size: 18px;
