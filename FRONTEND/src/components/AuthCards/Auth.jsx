@@ -6,7 +6,7 @@ import "./auth.css";
 import "@fontsource/mulish";
 import "@fontsource/inter";
 
-const authUrl = 'https://insights-club-api.onrender.com/auth'
+const authUrl = 'https://api.insights-club-vitb.ml/auth'
 
 function SignInCard({ changeCard, handleClick, closeModal }) {
     const [username, setUsername] = useState('')

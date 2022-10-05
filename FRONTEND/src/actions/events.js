@@ -6,7 +6,7 @@ import {
 } from "../constants/eventsActionTypes";
 import { Fetch, Create, Update, Delete } from "../api/index.js";
 
-let eventsUrl = "https://insights-club-api.onrender.com/event";
+let eventsUrl = "https://api.insights-club-vitb.ml/event";
 
 export const getEvents = () => async (dispatch) => {
 	try {

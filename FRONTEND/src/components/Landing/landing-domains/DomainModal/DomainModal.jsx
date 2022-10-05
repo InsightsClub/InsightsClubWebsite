@@ -5,7 +5,7 @@ import "@fontsource/mulish";
 import "@fontsource/inter";
 import "@fontsource/martel";
 
-const domainUrl = 'https://insights-club-api.onrender.com/dept'
+const domainUrl = 'https://api.insights-club-vitb.ml/dept'
 
 function MemberCard({ details }) {
     return (

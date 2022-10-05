@@ -53,7 +53,7 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
         else try {
             jwt.verify(req.cookies.token, process.env.JWT_SECRET);
             // verified successfully
-            res.setHeader('set-cookie', ['token=loggedout; path=/; domain=onrender.com samesite=none; httponly; Secure;', 'user={}; path=/; domain=onrender.com samesite=none; Secure;']); // added secure for production
+            res.setHeader('set-cookie', ['token=loggedout; path=/; domain=insights-club-vitb.ml samesite=none; httponly; Secure;', 'user={}; path=/; domain=insights-club-vitb.ml samesite=none; Secure;']); // added secure for production
             res.status(200).json({ success: true, message: "User logged out !!" });
         } catch (e) {
             if (e.name == 'TokenExpiredError')
@@ -101,12 +101,12 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
 				payload.name = doc.name;
 				payload.department = doc.department;
 
-                res.setHeader('set-cookie', [`token=${token}; path=/; domain=onrender.com expires=${expiry_date}; samesite=none; httponly; Secure;`, `user=${JSON.stringify(payload)}; path=/; domain=onrender.com expires=${expiry_date}; samesite=none; Secure;`]);
+                res.setHeader('set-cookie', [`token=${token}; path=/; domain=insights-club-vitb.ml expires=${expiry_date}; samesite=none; httponly; Secure;`, `user=${JSON.stringify(payload)}; path=/; domain=insights-club-vitb.ml expires=${expiry_date}; samesite=none; Secure;`]);
 
                 res.status(200).json({ success: true, message: 'User logged in !!' });
             }
             else {
-                res.setHeader('set-cookie', ['token=loggedout; path=/; domain=onrender.com samesite=none; httponly; Secure;', 'user={}; path=/; domain=onrender.com samesite=none; Secure;']); // added secure for production
+                res.setHeader('set-cookie', ['token=loggedout; path=/; domain=insights-club-vitb.ml samesite=none; httponly; Secure;', 'user={}; path=/; domain=insights-club-vitb.ml samesite=none; Secure;']); // added secure for production
 
 				return next(new ErrorHandler("Invalid credentials !!", 400));
 			}
