@@ -13,24 +13,36 @@ const View = () => {
 	const navigate = useNavigate();
 	const [like, setLike] = useState(false);
 	const [cookie] = useCookies();
+	const [error, setError] = useState("");
 	const params = useParams();
 	const [b, setBlog] = useState({});
 	const url = `${process.env.REACT_APP_BACKEND_URL}/blog`;
 	useEffect(() => {
-		b?.likedBy?.includes(cookie.user.id) ? setLike(true) : setLike(false);
 		axios
 			.get(`${process.env.REACT_APP_BACKEND_URL}/blog/${params.id}`)
 			.then((res) => {
 				let { blog } = res.data;
 				setBlog(blog);
+				let likedArray = b?.likedBy;
+				for (let i = 0; i < likedArray.length; i++) {
+					if (likedArray[i] === cookie.user.id) {
+						setLike(true);
+						break;
+					} else {
+						setLike(false);
+					}
+				}
 			});
 	}, [params.id, like, cookie.user.id, b]);
 
 	const handleLikes = () => {
-		axios.post(`${url}/${params.id}/like`).then((res) => console.log(res));
-		setLike((prev) => !prev);
+		if (cookie.user.id) {
+			axios.post(`${url}/${params.id}/like`);
+			setLike((prev) => !prev);
+		} else {
+			setError("Sign in to Like");
+		}
 	};
-	console.log(b);
 	if (b) {
 		return (
 			<>
@@ -59,6 +71,7 @@ const View = () => {
 						</div>
 						<p className='view-blog-likesCounter'>{b?.likes}</p>
 					</div>
+					<p className='view-blog-error'>{error}</p>
 				</div>
 			</>
 		);

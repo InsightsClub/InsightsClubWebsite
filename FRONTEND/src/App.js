@@ -16,30 +16,30 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import NewVideo from "./components/VideoPage/NewVideo";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Navbar />}>
-        <Route exact path="" element={<Landing />} />
-        <Route path="events" element={<EventsPage />} />
-        <Route path="event/:id" element={<EventDetails />} />
-        <Route path="about" element={<About />} />
-        <Route element={<ProtectedRoute coAdminLevelAccess={true} />}>
-          <Route path="videos/new" element={<NewVideo />} />
-        </Route>
-        <Route path="videos" element={<VideoPage />} />
-        <Route path="articles" element={<ArticleLanding />} />
-        <Route path="article/:id" element={<DetailedArticle />} />
-        <Route element={<ProtectedRoute coAdminLevelAccess={true} />}>
-          <Route path="events/newEvent" element={<NewEvent />} />
-        </Route>
-        <Route path="profile" element={<Profile />} />
-      </Route>
+	return (
+		<Routes>
+			<Route path='/' element={<Navbar />}>
+				<Route exact path='' element={<Landing />} />
+				<Route path='events' element={<EventsPage />} />
+				<Route path='event/:id' element={<EventDetails />} />
+				<Route path='about' element={<About />} />
+				<Route element={<ProtectedRoute coAdminLevelAccess={true} />}>
+					<Route path='videos/new' element={<NewVideo />} />
+				</Route>
+				<Route path='videos' element={<VideoPage />} />
+				<Route path='articles' element={<ArticleLanding />} />
+				<Route path='article/:id' element={<DetailedArticle />} />
+				<Route element={<ProtectedRoute coAdminLevelAccess={true} />}>
+					<Route path='events/newEvent' element={<NewEvent />} />
+				</Route>
+				<Route path='profile' element={<Profile />} />
+			</Route>
 
-      <Route path="blogs" element={<BlogsLanding />} />
-      <Route path="write" element={<Create />} />
-      <Route path="blog/:id" element={<View />} />
-    </Routes>
-  );
+			<Route path='blogs' element={<BlogsLanding />} />
+			<Route path='write' element={<Create />} />
+			<Route path='blog/:id' element={<View />} />
+		</Routes>
+	);
 }
 
 export default App;
