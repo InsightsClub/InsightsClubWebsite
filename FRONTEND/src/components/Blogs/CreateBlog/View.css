@@ -41,3 +41,7 @@
 .view-blog-back:hover {
 	transform: translateX(-10px);
 }
+.view-blog-error {
+	font-size: 1.2rem;
+	color: rgb(226, 34, 34);
+}
