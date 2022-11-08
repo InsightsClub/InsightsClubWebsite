@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import "./Create.css";
 import { createBlogs } from "../../../actions/blogs";
@@ -8,11 +8,15 @@ import { Editor } from "react-draft-wysiwyg";
 import draftToHtml from "draftjs-to-html";
 import htmlToDraft from "html-to-draftjs";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 const Create = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const params = useParams();
+	const [cookie] = useCookies();
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 	const [description, setDescription] = useState("");
@@ -20,6 +24,41 @@ const Create = () => {
 	const [editorState, setEditorState] = useState(EditorState.createEmpty());
 	const [saving, setSaving] = useState(false);
 	const [error, setError] = useState("");
+
+	useEffect(() => {
+		if (!params.id) return;
+		getBlog();
+	});
+
+	const getBlog = async () => {
+		try {
+			const response = await axios({
+				method: "GET",
+				url: `${process.env.REACT_APP_BACKEND_URL}/blog/${params.id}`,
+			});
+
+			if (response.status === (200 || 304)) {
+				if (cookie.user.id !== response.data.blog.author._id) {
+					return;
+				} else {
+					setTitle(response.data.blog.title);
+					setContent(response.data.blog.content);
+
+					const contentBlock = htmlToDraft(response.data.blog.content);
+					const contentState = ContentState.createFromBlockArray(
+						contentBlock.contentBlocks
+					);
+					const editorState = EditorState.createWithContent(contentState);
+
+					setEditorState(editorState);
+				}
+			} else {
+				setError(`Unable to retrieve blog`);
+			}
+		} catch (error) {
+			setError(error.message);
+		}
+	};
 
 	const postBlog = async (e) => {
 		e.preventDefault();
