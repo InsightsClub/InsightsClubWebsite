@@ -98,10 +98,14 @@ body {
 .hamburger-line-top {
 	top: 3px;
 }
-
+.menu-active {
+	padding: 15px 20px;
+}
+.menu-active .hamburger {
+	top: -35px;
+}
 .menu-active .hamburger-line-top {
-	top: 50%;
-	transform: rotate(45deg) translatey(-50%);
+	transform: rotate(45deg);
 }
 
 .hamburger-line-middle {
@@ -110,9 +114,7 @@ body {
 }
 
 .menu-active .hamburger-line-middle {
-	left: 50%;
-	opacity: 0;
-	width: 0;
+	display: none;
 }
 
 .hamburger-line-bottom {
@@ -120,8 +122,8 @@ body {
 }
 
 .menu-active .hamburger-line-bottom {
-	bottom: 50%;
-	transform: rotate(-45deg) translatey(50%);
+	top: 10%;
+	transform: rotate(-45deg);
 }
 
 .nav-menu-wrapper {
