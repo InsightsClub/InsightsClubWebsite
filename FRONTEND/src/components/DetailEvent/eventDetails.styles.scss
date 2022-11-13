@@ -67,7 +67,7 @@
     .eventDetailsContainer{
         width: 100%;
         height: auto;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
 
         display: flex;
         align-items: center;
@@ -187,9 +187,11 @@
         }
 
         .eventDetailsContainer{
+            margin-top: 5px;
             .topdetails{
+                margin: 5px 0;
                 h2{
-                    font-size: 4vw;
+                    font-size: 4vw; 
                 }
                 .time{
                     font-size: 3vw;
@@ -202,6 +204,7 @@
 
             .bottomdetails{
                 font-size: 2.3vw;
+                margin-top: 10px;
 
                 .buttonClass{
                     font-size: 2.5vw;
