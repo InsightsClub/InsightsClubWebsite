@@ -2,19 +2,22 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: center ;
 }
 .articles-header {
-	font-family: "Martel";
+	font-family: 'Mulish';
 	width: 100%;
 	height:65px;
+	letter-spacing: 2px;
 	font-size: 55px;
 	font-weight: 600;
-	margin-bottom: 50px;
+	margin-bottom: 50px !important;
 	align-self: flex-start;
 }
 .articles-container{
 	width: 100%;
+	margin-bottom: 20px;
+	margin-left:100px;
 }
 
 @media (max-width:600px) {
@@ -24,4 +27,9 @@
 		font-weight: 600;
 		margin-bottom: 0.5rem;
 	}
+	.articles-container{
+		
+		margin-left:40vw;
+	}
+	
 }

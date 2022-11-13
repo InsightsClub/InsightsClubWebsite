@@ -6,68 +6,75 @@
 	flex-direction: row;
 	align-items: center;
 	border: 1px solid black;
-	width: 51rem;
-	height:190px;
+	box-sizing: border-box;
+	
 	overflow: hidden;
 	border-radius: 5px;
 	outline: none;
 	transition: 0.2s ease;
+	margin-left:-50px;
 }
 .article-container:hover {
 	transform: translateY(-3px) scale(1.01);
 	-webkit-box-shadow: 7px 17px 21px -7px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 7px 17px 21px -7px rgba(0, 0, 0, 0.75);
-	box-shadow: 7px 17px 21px -7px rgba(0, 0, 0, 0.75);
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 .article-image {
 	
 	width: 200px;
-	
+	margin-bottom: -9px;
 }
 .ig{
 	width:152px;
-	height:148px;
+	height:auto;
 }
 .article-content {
 	flex:3;
 	padding: 0.5rem 0;
-	
-	width:663px;
-	height:128px;
+	margin-left:-25px;
+	font-size: .9rem;
+	width:490px;
+	height:auto;
+	margin-right: 5px;
+	margin-bottom: 10px;
 }
 .article-header {
 	margin-bottom: 0.7rem;
 	font-size: 1.5rem;
 }
 .article-main {
+	margin-top: 25px;
 	margin-bottom: 0.7rem;
+	margin-right: 5px;
+	box-sizing: border-box;
 }
 .article-footer {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 	font-size: 1.01rem;
-	margin-top: -29px;
+	margin-top: -26px;
+	color:#666666;
 }
 .article-footer-createdAt {
 	padding-right: 1rem;
 	margin-left: 0.7rem;
 }
-@media (max-width:600px) {
+@media (max-width:1100px) {
 	.article-main{
 		font-size: 0.5rem;
 	}
 	.article-container {
 		margin-bottom: 1.2rem;
+		
 		display: flex;
 		padding:20px;
 		font-family: "Martel";
 		flex-direction: row;
 		align-items: center;
 		border: 1px solid black;
-		width:90vw;
-		height:110px;
-		
+		box-sizing: border-box;
 		border-radius: 5px;
 		outline: none;
 		transition: 0.2s ease;
@@ -80,25 +87,40 @@
 	}
 	.article-content {
 		flex:3;
-		width:750px;
-		height:128px;
-		margin-top: 15px;
+		box-sizing: border-box;
+		margin-left: 20px;
+		margin-bottom: -20px;
 	}
 	.ig{
 		width: 60px;
 		height: 80px;
 	}
 	.article-main{
-		width:270px;
-		height:70px;
+		margin-top: 25px ;
+		width:40vw;
+		height:auto;
+		font-size: 7px;
+		z-index: -1;
+		margin-bottom: 10px;
 	}
 	.article-header-title{
-		font-size: 0.7rem;
+		font-size: 0.6rem;
 	}
 	.article-footer {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
 		font-size: 0.5rem;
+		z-index: 1;
+		position: relative;
+		top:17px;
+	}
+	.article-footer-author{
+		margin-top: 10px;
+		
+	}
+	.article-footer-createdAt{
+		margin-top: 10px;
+		margin-left: 20px;
 	}
 }

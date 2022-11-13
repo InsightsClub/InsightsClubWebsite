@@ -11,10 +11,10 @@
     width: 60vw;
 }
 .child2 {
-    width: 25vw;
+    width: auto;
 }
 
-@media (max-width:600px) {
+@media (max-width:1100px) {
     .my{
         flex-direction: column;
     }

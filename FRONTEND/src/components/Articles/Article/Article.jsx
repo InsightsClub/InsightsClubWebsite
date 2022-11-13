@@ -16,13 +16,13 @@ function Article({ article }) {
 				<div className='article-header'>
 					<p className='article-header-title'>
 						<strong>{article.title}</strong>
-					</p>
-				</div>
-				<div className='article-main'>{article.content}</div>
-				<div className='article-footer'>
+					<div className='article-footer'>
 					<p className='article-footer-author'>~ {article.author}</p>
 					<p className='article-footer-createdAt'>{article.createdAt}</p>
 				</div>
+					</p>
+				</div>
+				<div className='article-main'>{article.content}</div>
 			</div>
 		</div>
 	);
