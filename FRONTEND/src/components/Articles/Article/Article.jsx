@@ -18,6 +18,7 @@ function Article({ article }) {
 						<strong>{article.title}</strong>
 					<div className='article-footer'>
 					<p className='article-footer-author'>~ {article.author}</p>
+					
 					<p className='article-footer-createdAt'>{article.createdAt}</p>
 				</div>
 					</p>

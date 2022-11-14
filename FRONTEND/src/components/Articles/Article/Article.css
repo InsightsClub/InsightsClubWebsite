@@ -89,6 +89,7 @@
 	.article-content {
 		flex:3;
 		box-sizing: border-box;
+		
 		margin-top: -19px;
 		margin-left: 5px;
 		margin-bottom: -35px;
@@ -102,6 +103,7 @@
 	.article-main{
 		margin-top: 25px ;
 		width:40vw;
+		
 		height:auto;
 		font-size: 7px;
 		z-index: -1;
@@ -112,7 +114,7 @@
 	}
 	.article-footer {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: space-between;
 		align-items: center;
 		font-size: 0.5rem;
 		z-index: 1;
@@ -126,6 +128,6 @@
 	}
 	.article-footer-createdAt{
 		margin-top: 10px;
-		margin-left: 20px;
+		
 	}
 }
