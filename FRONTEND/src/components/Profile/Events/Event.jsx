@@ -11,7 +11,7 @@ function Event({ event }) {
 
 					<div className='profile-date'>
 						<p className='profile-b'>{event.time}</p>
-						<p className='profile-b'>{event.date}</p>
+						<p className='profile-b-date'>{event.date}</p>
 					</div>
 				</div>
 
@@ -36,7 +36,7 @@ function Event({ event }) {
 								color: registered ? "#FFFFFF" : "#5FCA64",
 							}}
 							onClick={() => setRegistered(true)}>
-							<p className='profile-r'>
+							<p className='profile-r '>
 								{registered ? "Registered" : "Register"}
 							</p>
 						</button>
@@ -48,3 +48,4 @@ function Event({ event }) {
 }
 
 export default Event;
+
