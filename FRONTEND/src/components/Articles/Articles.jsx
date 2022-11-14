@@ -17,6 +17,7 @@ function Articles() {
 			<div className='articles-main-container'>
 				<div className='articles-header'>Articles</div>
 				<div className='articles-container'>
+					<Article article={article}/>
 				</div>
 			</div>
 		</>
