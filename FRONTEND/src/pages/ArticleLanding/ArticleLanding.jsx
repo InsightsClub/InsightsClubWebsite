@@ -11,7 +11,7 @@ function ArticleLanding() {
       </div>
 
       <div className="child2">
-        <Newsarticle />
+      <Newsarticle />
       </div>
     </div>
   );
