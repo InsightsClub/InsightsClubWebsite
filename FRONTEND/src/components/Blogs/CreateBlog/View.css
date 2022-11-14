@@ -24,3 +24,24 @@
 .view-blog-likesCounter {
 	margin-left: 0.5rem;
 }
+.view-blog-footer-like {
+	cursor: pointer;
+}
+.view-blog-back {
+	display: inline-block;
+	font-size: 1.5rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: 400ms;
+}
+.view-blog-back span {
+	font-size: 1.2rem;
+	margin-left: 0.4rem;
+}
+.view-blog-back:hover {
+	transform: translateX(-10px);
+}
+.view-blog-error {
+	font-size: 1.2rem;
+	color: rgb(226, 34, 34);
+}

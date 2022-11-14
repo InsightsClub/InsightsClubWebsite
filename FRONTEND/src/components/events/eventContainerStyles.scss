@@ -4,6 +4,7 @@
     margin-bottom: 20px;
     cursor: pointer;
     height: fit-content;
+    max-height: 16rem;
     display: flex;
     background: #FFFFFF;
     border: 1px solid #B9B9B9;
@@ -11,7 +12,7 @@
     font-style: normal;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     padding: 1.5vw;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
     .left{
         width: 35%;
@@ -90,10 +91,10 @@
             }
 
             .date{
-                width: 3.8vw;
-                height: 4.2vw;
+                width: max-content;
+                height: max-content;
+                padding: 1rem 0.8rem;
                 display: flex;
-                flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 background: #FFC776;
@@ -136,9 +137,17 @@
 @media screen and (max-width: 992px) {
     .event-container{
         flex-direction: column;
+        max-height: max-content;
 
         .left, .right{
             width: 100%;
+        }
+
+        .left{
+            
+            img{
+                height: 12rem;
+            }
         }
 
         .right{
@@ -158,8 +167,9 @@
                 font-size: 2vw;
 
                 .date{
-                    width: 4.8vw;
-                    height: 5.2vw;
+                    // width: 4.8vw;
+                    // height: 5.2vw;
+                    padding: 0.5rem;
                     font-size: 1.8vw;
                 }
             }
@@ -167,7 +177,10 @@
     }
 
     .popup{
-        width: 80vw;
-        left: 10%;
+        width: 90vw;
+        height: max-content;
+        max-height: 90vh;
+        top: 5vh;
+        left: 5vw;
     }
 }

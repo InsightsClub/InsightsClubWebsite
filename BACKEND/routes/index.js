@@ -51,6 +51,10 @@ const {
 	deleteVideo,
 } = require("../controllers/videoController");
 const verifyUser = require("../middlewares/verifyUser");
+const {
+	getAllNewsletters,
+	createNewsletter,
+} = require("../controllers/newsletterController");
 
 router.route("/event/all").get(getAllEvents);
 router.route("/event/new").post(verifyUser, createNewEvent);
@@ -110,3 +114,6 @@ router
 router
 	.route("/user/demote/:id")
 	.put(verifyUser, removeCoAdmin);
+
+router.route("/newsletter/all").get(getAllNewsletters);
+router.route("/newsletter/new").post(verifyUser, createNewsletter);

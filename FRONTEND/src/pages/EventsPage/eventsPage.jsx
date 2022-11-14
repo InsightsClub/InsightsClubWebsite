@@ -15,7 +15,7 @@ import { useCookies } from "react-cookie";
 const EventsPage = () => {
 	const [eventType, setEventType] = useState("Past");
   const [cookies] = useCookies(["user"]);
-  console.log("cookies: ", cookies);
+  // console.log("cookies: ", cookies);
   const dispatch = useDispatch();
 
 	useEffect(() => {

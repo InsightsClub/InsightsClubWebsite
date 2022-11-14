@@ -95,6 +95,9 @@
 	border-radius: 10px;
 	margin-right: 20px;
 }
+.profile-blog-delete:hover {
+	transform: scale(1.1);
+}
 .profile-blog-edit {
 	font-size: 1.2rem;
 	background-color: rgb(32, 54, 251);
@@ -103,4 +106,7 @@
 	outline: none;
 	border: none;
 	border-radius: 10px;
+}
+.profile-blog-edit:hover {
+	transform: scale(1.1);
 }

@@ -42,12 +42,17 @@ const EventsContainer = ({ event }) => {
   var month = event.date.substr(5, 2);
   month = parseInt(month);
 
+  event.shortdescription = event.description.substring(0, 100);
+
   return (
     <>
-      <div onClick={() => {
-        setPopupTrigger(true);
-        setEventData(event);
-      }} className="event-container">
+      <div
+        onClick={() => {
+          setPopupTrigger(true);
+          setEventData(event);
+        }}
+        className="event-container"
+      >
         <div className="left">
           <img src={event.image.url} alt="eventImage" />
         </div>
@@ -57,7 +62,7 @@ const EventsContainer = ({ event }) => {
             <h2>{event.title}</h2>
             {event.status !== "past" ? <div className="time">{time}</div> : ""}
           </div>
-          <p>{event.description}</p>
+          <p>{event.shortdescription}......</p>
           <div className="lastdetails">
             <div className="modeVenue">
               <div className="mode">Mode: {event.mode}</div>

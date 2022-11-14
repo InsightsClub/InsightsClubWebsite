@@ -1,0 +1,84 @@
+.video-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px); /* 100px was navbar's height */
+    box-sizing: border-box;
+}
+
+.video-form>form {
+    width: 25vw;
+    box-sizing: border-box;
+}
+
+.video-form button {
+    box-sizing: border-box;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17.3333px;
+    line-height: 21px;
+    color: #000000;
+    background: #FFB45F;
+    border: none;
+    border-radius: 18.0556px;
+    width: 90px;
+    height: 50px;
+    transition: all 0.2s ease-out;
+}
+
+.video-form button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.video-form label {
+    box-sizing: border-box;
+    font-family: 'Mulish';
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0.6rem 0 0 0;
+}
+
+.video-form input,
+.video-form textarea {
+    box-sizing: border-box;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    color: #3A3A3A;
+    background: none;
+    padding: 0.4rem;
+    margin: 0.3rem 0 1rem 0;
+    
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+}
+
+.video-form textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 300px;
+}
+
+.video-form input:focus,
+.video-form textarea:focus {
+    border: 2px solid #7176FC;
+}
+
+@media screen and (max-width: 1024px) {
+    .video-form>form {
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .video-form>form {
+        width: 85vw;
+    }
+}

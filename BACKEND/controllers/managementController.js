@@ -197,15 +197,16 @@ exports.deleteDepartment = catchAsyncErrors(async (req, res, next) => {
 //CREATE NEW EVENT
 exports.createNewEvent = catchAsyncErrors(async (req, res, next) => {
     if(req.user.isAdmin || req.user.isCoAdmin) {
-        const img = req.files.image;
+        const img = req.body.image;
         if (!img) {
             return next(new ErrorHandler("Image not available", 404));
         }
-        const myCloud = await cloudinary.uploader.upload(img.tempFilePath, {
+        const myCloud = await cloudinary.uploader.upload(img, {
         folder: "Events",
         });
-        const { title, description, date, domain, department } = req.body;
+        const { title, description, date, domain, department, shortDescription, mode, status } = req.body;
         const event = await Events.create({
+          shortDescription, mode, status,
             title,
             description,
             domain, 

@@ -14,11 +14,10 @@ function Navbar() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-        if(showAuthModal === true || menu === true)
-            document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
-        else
-            document.getElementsByTagName('body')[0].style.overflowY = 'scroll';
-    });
+		if (showAuthModal === true || menu === true)
+			document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+		else document.getElementsByTagName("body")[0].style.overflowY = "scroll";
+	});
 
 	return (
 		<Fragment>
@@ -34,18 +33,23 @@ function Navbar() {
 									id='profile-picture'
 									className='profile-picture-mobile'
 									onClick={() => {
-										if (!(cookies.hasOwnProperty('user') && Object.keys(cookies.user).length !== 0)) {
-											displayAuthModal(true)
+										if (
+											!(
+												cookies.hasOwnProperty("user") &&
+												Object.keys(cookies.user).length !== 0
+											)
+										) {
+											displayAuthModal(true);
 										} else {
-											navigate('/profile');
+											navigate("/profile");
 										}
 									}}>
 									<img src={User_Image} className='profilepic' alt='Profile' />
 									<span className='nav-link'>
-										{(cookies.hasOwnProperty('user') && Object.keys(cookies.user).length !== 0)
+										{cookies.hasOwnProperty("user") &&
+										Object.keys(cookies.user).length !== 0
 											? cookies.user.name
-											: "Sign In"
-										}
+											: "Sign In"}
 									</span>
 								</button>
 							</li>
@@ -80,10 +84,15 @@ function Navbar() {
 						id='profile-picture'
 						className='profile-picture pp-desktop'
 						onClick={() => {
-							if (!(cookies.hasOwnProperty('user') && Object.keys(cookies.user).length !== 0)) {
-								displayAuthModal(true)
+							if (
+								!(
+									cookies.hasOwnProperty("user") &&
+									Object.keys(cookies.user).length !== 0
+								)
+							) {
+								displayAuthModal(true);
 							} else {
-								navigate('/profile');
+								navigate("/profile");
 							}
 						}}>
 						<img src={User_Image} className='profilepic' alt='Profile' />

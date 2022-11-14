@@ -9,14 +9,43 @@ import EventDetails from "../../DetailEvent/eventDetails";
 import axios from "axios";
 
 const eventUrl = `${process.env.REACT_APP_BACKEND_URL}/event`;
+const monthText = (num) => {
+    switch (num) {
+        case 1:
+            return "Jan";
+        case 2:
+            return "Feb";
+        case 3:
+            return "Mar";
+        case 4:
+            return "Apr";
+        case 5:
+            return "May";
+        case 6:
+            return "Jun";
+        case 7:
+            return "July";
+        case 8:
+            return "Aug";
+        case 9:
+            return "Sep";
+        case 10:
+            return "Oct";
+        case 11:
+            return "Nov";
+        case 12:
+            return "Dec";
+        default:
+            return "N/A";
+    }
+}
 
 function EventSlides() {
     const [currentEvent, setCurrentEvent] = useState({});
     const [pastEvent, setPastEvent] = useState({});
     const [upcomingEvent, setUpcomingEvent] = useState({});
 
-    const [eventPage, setEventPage] = useState({});
-    const { popupTrigger, setPopupTrigger } = useContext(PopupContext);
+    const { popupTrigger, setPopupTrigger, eventData, setEventData } = useContext(PopupContext);
 
     useEffect(() => {
       axios
@@ -29,7 +58,7 @@ function EventSlides() {
           if (_upcoming !== undefined && _upcoming != null)
             setUpcomingEvent(_upcoming);
           if (_ongoing !== undefined && _ongoing != null)
-            setCurrentEvent(_upcoming);
+            setCurrentEvent(_ongoing);
           if (_past !== undefined && _past != null) setPastEvent(_past);
         })
         .catch((err) => {
@@ -81,7 +110,7 @@ function EventSlides() {
                                     </p>
                                     <button className="slide-info-button"
                                         onClick={() => {
-                                            setEventPage(pastEvent)
+                                            setEventData(pastEvent)
                                             setPopupTrigger(true)
                                         }}>
                                         More info&hellip;
@@ -101,7 +130,7 @@ function EventSlides() {
                                     </p>
                                     <button className="slide-info-button"
                                         onClick={() => {
-                                            setEventPage(currentEvent)
+                                            setEventData(currentEvent)
                                             setPopupTrigger(true)
                                         }}>
                                         Register
@@ -121,7 +150,7 @@ function EventSlides() {
                                     </p>
                                     <button className="slide-info-button"
                                         onClick={() => {
-                                            setEventPage(upcomingEvent)
+                                            setEventData(upcomingEvent)
                                             setPopupTrigger(true)
                                         }}
                                     >Get updates
@@ -141,7 +170,12 @@ function EventSlides() {
             {
                 popupTrigger ? (
                     <div className="popup">
-                        <EventDetails event={eventPage} />
+                        <EventDetails
+                            eventData={eventData}
+                            time={eventData.date.substr(11, 5)}
+                            date={eventData.date.substr(8, 2)}
+                            month={monthText(parseInt(eventData.date.substr(5, 2)))}
+                        />
                     </div>
                 ) : (
                     ""

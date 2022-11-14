@@ -1,36 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Blog.css";
 import moment from "moment";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import LIKE from "../../../media/likeVector.svg";
+import ACTIVE_LIKE from "../../../media/activeLikeVector.svg";
 
 function Blog({ blog }) {
-	// const url = `${process.env.REACT_APP_BACKEND_URL}/blog/${blog._id}/like`;
-	const [liked, setLiked] = useState(false);
 	const navigate = useNavigate();
-
 	return (
 		<>
-			<div className='blog-container'>
-				<div
-					className='blog-header'
-					onClick={() => navigate(`/blog/${blog._id}`)}>
-					<p className='blog-header-name'>{blog.author.name}</p>
+			<div
+				className='blog-container'
+				onClick={() => navigate(`/blog/${blog._id}`)}>
+				<div className='blog-header'>
+					<p className='blog-header-name'>{blog?.author.name}</p>
 					<p className='blog-header-time'>
-						{moment(blog.createdAt).format("MMM Do YY")}
+						{moment(blog.createdAt).format("MMM Do YYYY")}
 					</p>
 				</div>
-				<div
-					className='blog-main'
-					onClick={() => navigate(`/blog/${blog._id}`)}>
-					<p className='blog-main-content'>{blog.description}</p>
+				<div className='blog-main'>
+					<p className='blog-main-content'>{blog?.description}</p>
 				</div>
 				<div className='blog-footer'>
 					<div className='blog-footer-like'>
-						<img src={LIKE} alt='like' />
+						<img src={ACTIVE_LIKE} alt='like' />
 					</div>
-					<p className='blog-likesCounter'>{blog.likes}</p>
+					<p className='blog-likesCounter'>{blog?.likes}</p>
 				</div>
 			</div>
 		</>

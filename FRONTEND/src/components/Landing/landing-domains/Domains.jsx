@@ -42,11 +42,7 @@ function Domains() {
     useEffect(() => {
         axios.get(`${domainUrl}/all`)
             .then((res) => {
-                const len = res.data.departments.length;
-                setTilesRows([
-                    res.data.departments.slice(0, Math.ceil(len / 2)),
-                    res.data.departments.slice(Math.ceil(len / 2), len)
-                ]);
+                setTilesRows([res.data.departments]);
             })
             .catch((err) => {
                 console.error(err);

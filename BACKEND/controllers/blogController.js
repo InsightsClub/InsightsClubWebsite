@@ -24,6 +24,7 @@ const canEdit = async (blogID, userID) => {
 	return { _canEdit: false };
 };
 
+//get all blogs
 exports.getAllBlogs = catchAsyncErrors(async (req, res, next) => {
 	const blogs = await Blogs.find(
 		{},
@@ -34,6 +35,8 @@ exports.getAllBlogs = catchAsyncErrors(async (req, res, next) => {
 			content: 1,
 			tags: 1,
 			author: 1,
+			likes: 1,
+			likedBy: 1,
 			isReviewed: 1,
 			reviewedBy: 1,
 			createdAt: 1,
@@ -42,7 +45,7 @@ exports.getAllBlogs = catchAsyncErrors(async (req, res, next) => {
 	)
 		.populate("author", "-email -password -verified")
 		.populate("reviewedBy", "-email -password -verified")
-		// .populate("likes", "-email -password -verified")
+		.populate("likedBy", "-email -password -verified")
 		.lean();
 	res.status(200).json(blogs);
 });
@@ -58,6 +61,7 @@ exports.getBlogByUser = catchAsyncErrors(async (req, res, next) => {
 			content: 1,
 			tags: 1,
 			author: 1,
+			likes: 1,
 			isReviewed: 1,
 			reviewedBy: 1,
 			createdAt: 1,
@@ -66,7 +70,7 @@ exports.getBlogByUser = catchAsyncErrors(async (req, res, next) => {
 	)
 		.populate("author", "-email -password -verified")
 		.populate("reviewedBy", "-email -password -verified")
-		// .populate("likes", "-email -password -verified")
+		.populate("likedBy", "-email -password -verified")
 		.lean();
 	res.status(200).json(blogs);
 });
@@ -77,6 +81,8 @@ exports.getBlog = catchAsyncErrors(async (req, res, next) => {
 		return next(new ErrorHandler(`${req.params.id} is not valid !!`, 400));
 	const blog = await Blogs.findById(req.params.id)
 		.populate("author", "-email -password -verified")
+		.populate("reviewedBy", "-email -password -verified")
+		.populate("likedBy", "-email -password -verified")
 		.lean();
 	if (!blog) {
 		return next(
@@ -139,6 +145,7 @@ exports.likeBlog = catchAsyncErrors(async (req, res, next) => {
 	const isValid = mongoose.Types.ObjectId.isValid(req.params.id);
 	if (!isValid)
 		return next(new ErrorHandler(`${req.params.id} is not valid !!`, 400));
+
 	const blog = await Blogs.findById(req.params.id).lean();
 	if (!blog) {
 		return next(
@@ -151,15 +158,32 @@ exports.likeBlog = catchAsyncErrors(async (req, res, next) => {
 			new ErrorHandler(`User with id: ${req.user.id} not found !!`, 404)
 		);
 	}
-	if (blog.likes.includes(user.id)) {
-		blog.likes.splice(blog.likes.indexOf(user.id), 1);
-		await blog.save();
-		res
-			.status(200)
-			.json({ success: true, message: "Blog disliked successfully !!" });
+	if (blog.hasOwnProperty("likes") && blog.likes > 0) {
+		var i = 0;
+		for (; i < blog.likes; i++) {
+			if (blog.likedBy[i].equals(user._id)) {
+				blog.likedBy.splice(i, 1);
+				blog.likes = blog.likes - 1;
+				await Blogs.updateOne({ _id: blog._id }, blog);
+				res
+					.status(200)
+					.json({ success: true, message: "Blog disliked successfully !!" });
+				return;
+			}
+		}
+		if (i == blog.likes) {
+			blog.likedBy.push(user._id);
+			blog.likes = blog.likes + 1;
+			await Blogs.updateOne({ _id: blog._id }, blog);
+			res
+				.status(200)
+				.json({ success: true, message: "Blog liked successfully !!" });
+			return;
+		}
 	} else {
-		blog.likes.push(user.id);
-		await blog.save();
+		blog.likedBy = [user._id];
+		blog.likes = 1;
+		await Blogs.updateOne({ _id: blog._id }, blog);
 		res
 			.status(200)
 			.json({ success: true, message: "Blog liked successfully !!" });

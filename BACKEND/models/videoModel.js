@@ -6,7 +6,6 @@ const videoScehma = new Schema({
     title: {
         type: String,
         require: true,
-
     },
 
     description: {
@@ -21,7 +20,11 @@ const videoScehma = new Schema({
 
     thumbnail: {
         type: String
-    }
+    },
+    
+    thumbnail_id: {
+        type: String
+    },
 }, {timestamps: true});
 
 const Video = mongoose.model("video", videoScehma)

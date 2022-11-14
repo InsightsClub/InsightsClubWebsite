@@ -11,8 +11,6 @@
 	);
 }
 .blogsnavbar-logo img {
-	/* width: 15%;
-	height: 15%; */
 	width: 67px;
 	height: 67px;
 	transition: ease 0.2s;
@@ -22,6 +20,8 @@
 }
 .blogsnavbar-search_box {
 	width: 700px;
+	margin-left: 230px;
+	margin-right: 250px;
 }
 .blogsnavbar-search_box input {
 	width: 90%;
@@ -29,7 +29,6 @@
 	border: none;
 	outline: none;
 	border-radius: 5px;
-	margin-right: 5rem;
 }
 .blogsnavbar-hambugermenu {
 	margin-right: 1rem;
@@ -37,4 +36,18 @@
 }
 .blogsnavbar-hambugermenu img:hover {
 	transform: scale(1.1);
+}
+@media only screen and (max-width: 750px) {
+	.blogsnavbar-search_box {
+		width: 150px;
+		margin-left: 20px;
+		margin-right: 30px;
+	}
+}
+@media only screen and (max-width: 1080px) {
+	.blogsnavbar-search_box {
+		width: 300px;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
 }

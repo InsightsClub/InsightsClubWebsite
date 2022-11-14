@@ -1,3 +1,15 @@
+::-webkit-scrollbar{
+    width: .4rem;
+}
+::-webkit-scrollbar-track{
+    margin-block: 1rem;
+}
+::-webkit-scrollbar-thumb{
+    background: grey;
+    border-radius: 20px;
+    height: 1rem;
+}
+
 .detailMainContainer{
     width: 100%;
     display: flex;
@@ -5,6 +17,7 @@
     flex-direction: column;
     border-radius: 20px;
     padding: 1vw;
+
 
     svg{
         position: absolute;
@@ -120,7 +133,7 @@
             .buttonClass{
                 padding: 1rem 2rem;
                 background: #FFB45F;
-                border-radius: 18.0556px;
+                border-radius: 1.125rem;
                 font-family: 'Inter';
                 font-weight: 400;
                 font-size: 1.4vw;
@@ -138,6 +151,7 @@
 
         .winnerContainer{
             align-self: flex-start;
+            
             span{
                 font-family: 'Martel';
                 font-weight: 300;
@@ -160,10 +174,16 @@
 
 @media screen and (max-width: 992px) {
     .detailMainContainer{
+        padding: .5rem;
+
         svg{
             width: 3vw;
             height: 2.5vh;
             right: 1.5vw;
+        }
+
+        .imgContainer{
+            max-height: 16rem;
         }
 
         .eventDetailsContainer{
@@ -177,6 +197,7 @@
             }
             p{
                 font-size: 2.3vw;
+                width: 100%;
             }
 
             .bottomdetails{
@@ -184,6 +205,8 @@
 
                 .buttonClass{
                     font-size: 2.5vw;
+                    padding: 0.4rem 0.7rem;
+                    border-radius: 10px;
                 }
             }
 
@@ -192,6 +215,7 @@
                     font-size: 2vw;
                 }
                 svg{
+                    top: 12px;
                     width: 2.4vw;
                     height: 3vh;
                 }

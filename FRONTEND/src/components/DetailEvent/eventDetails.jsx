@@ -76,7 +76,7 @@ const EventDetails = ({ eventData, time, date, month }) => {
         <div className="bottomdetails">
           <div className="modeVenue">
             <div className="mode">Mode: {eventData.mode}</div>
-            {eventData?.status !== "past" ? (
+            {eventData?.status !== "past" && eventData?.mode !== "Online" ? (
               <div className="venue">Venue: {eventData.venue}</div>
             ) : (
               ""

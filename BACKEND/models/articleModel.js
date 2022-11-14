@@ -25,12 +25,12 @@ const articleSchema = new Schema({
         require: true,
     },
 
-    author: {
+    lastEditedBy: {
         type: Schema.Types.ObjectId,
         ref: 'Users',
         require: true,
     },
-
+    
     }, { timestamps: true })
 
 const Article = mongoose.model("article", articleSchema)

@@ -30,11 +30,17 @@ const contentSchema = new Schema(
 			require: true,
 		},
 		likes: {
-			type: [Schema.Types.ObjectId],
 			type: Number,
-			ref: "Users",
-			// require: true,
+			default: 0,
+			require: true,
 		},
+
+		likedBy: [
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Users",
+			},
+		],
 
 		isReviewed: {
 			type: Boolean,

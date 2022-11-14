@@ -7,7 +7,6 @@
 	outline: none;
 	padding: 1rem;
 	margin-top: 1.2em;
-	/* max-width: 500px; */
 	width: 100%;
 	font-family: "Mulish";
 }
@@ -22,6 +21,7 @@
 .blog-footer {
 	display: flex;
 	justify-content: flex-start;
+	height: 20px;
 }
 .blog-footer-like img {
 	width: 1.5rem;

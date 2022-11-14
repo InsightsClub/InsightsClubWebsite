@@ -153,12 +153,27 @@
     .footer-heading {
         text-align: center;
         margin-top: 30px;
+        font-size: 20px;
+    }
+    .footer-link, .contact {
+        font-size: 18px;
+    }
+    .contact-logo {
+        height: 20px;
+        width: 20px;
+    }
+    .social-link {
+        width: 25px;
+        height: 25px;
     }
     .social-links {
         padding: 0;
+        justify-content: space-around;
     }
     .footer {
         flex-direction: column;
         align-items: stretch;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
