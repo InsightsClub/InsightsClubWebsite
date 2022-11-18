@@ -37,7 +37,7 @@ export const viewBlogs = (id) => async (dispatch) => {
 };
 export const updateBlogs = (id, blog) => async (dispatch) => {
 	try {
-		const { data } = await Update(id, blog, blogsUrl);
+		const { data } = await Update(id, blog, `${blogsUrl}/${id}`);
 
 		dispatch({ type: UPDATE, payload: data });
 	} catch (error) {
@@ -46,7 +46,7 @@ export const updateBlogs = (id, blog) => async (dispatch) => {
 };
 export const deleteBlogs = (id) => async (dispatch) => {
 	try {
-		await Delete(id, blogsUrl);
+		await Delete(id, `${blogsUrl}/${id}`);
 
 		dispatch({ type: DELETE, payload: id });
 	} catch (error) {
