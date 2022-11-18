@@ -9,6 +9,8 @@ import ACTIVE_LIKE from "../../../media/activeLikeVector.svg";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 
+const url = `${process.env.REACT_APP_BACKEND_URL}/blog`;
+
 const View = () => {
 	const navigate = useNavigate();
 	const [like, setLike] = useState(false);
@@ -16,16 +18,17 @@ const View = () => {
 	const [error, setError] = useState("");
 	const params = useParams();
 	const [b, setBlog] = useState({});
-	const url = `${process.env.REACT_APP_BACKEND_URL}/blog`;
+
 	useEffect(() => {
 		axios
 			.get(`${process.env.REACT_APP_BACKEND_URL}/blog/${params.id}`)
 			.then((res) => {
 				let { blog } = res.data;
 				setBlog(blog);
-				let likedArray = b?.likedBy;
-				for (let i = 0; i < likedArray.length; i++) {
-					if (likedArray[i] === cookie.user.id) {
+				let likedByArray = blog.likedBy;
+				console.log(likedByArray);
+				for (let i = 0; i < likedByArray.length; i++) {
+					if (likedByArray[i]._id === cookie.user.id) {
 						setLike(true);
 						break;
 					} else {
@@ -33,7 +36,8 @@ const View = () => {
 					}
 				}
 			});
-	}, [params.id, like, cookie.user.id, b]);
+		console.log(b);
+	}, [params.id, like, cookie.user]);
 
 	const handleLikes = () => {
 		if (cookie.user.id) {
@@ -43,6 +47,7 @@ const View = () => {
 			setError("Sign in to Like");
 		}
 	};
+	console.log(b?._id);
 	if (b) {
 		return (
 			<>

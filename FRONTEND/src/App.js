@@ -36,7 +36,8 @@ function App() {
 			</Route>
 
 			<Route path='blogs' element={<BlogsLanding />} />
-			<Route path='write' element={<Create />} />
+			{/* <Route path='write' element={<Create />} /> */}
+			<Route path='write/:id' element={<Create />} />
 			<Route path='blog/:id' element={<View />} />
 		</Routes>
 	);
