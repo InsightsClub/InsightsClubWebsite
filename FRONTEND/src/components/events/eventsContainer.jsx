@@ -2,6 +2,7 @@ import React, { useContext} from 'react';
 import './eventContainerStyles.scss';
 import EventDetails from '../DetailEvent/eventDetails';
 import { PopupContext } from '../../contexts/popupContext';
+import { Link } from 'react-router-dom';
 
 const monthText = (num) => {
   switch (num) {
@@ -71,6 +72,12 @@ const EventsContainer = ({ event }) => {
               ) : (
                 ""
               )}
+              <div className="edit-delete" style={{ margin: "20px" }}>
+                <Link to={`/event/edit/${event._id}`} state={{data: event}}>
+                  <button>Edit</button>
+                </Link>
+                <button>Delete</button>
+              </div>
             </div>
             <div className="date">
               {date} {monthText(month)}

@@ -97,7 +97,7 @@ export const createEvents = (event) => async (dispatch) => {
 	}
 };
 
-export const updateEvents = (id, event) => async (dispatch) => {
+export const updateEvent = (id, event) => async (dispatch) => {
 	try {
 		const { data } = await Update(id, event, eventsUrl);
 
@@ -107,7 +107,7 @@ export const updateEvents = (id, event) => async (dispatch) => {
 	}
 };
 
-export const deleteEvents = (id) => async (dispatch) => {
+export const deleteEvent = (id) => async (dispatch) => {
 	try {
 		await Delete(id, eventsUrl);
 

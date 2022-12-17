@@ -14,6 +14,7 @@ import Profile from "./pages/Profile/Profile";
 import NewEvent from "./components/NewEvent/newEvent";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import NewVideo from "./components/VideoPage/NewVideo";
+import EditEvent from "./components/EditEvent/editEvent";
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 				<Route exact path='' element={<Landing />} />
 				<Route path='events' element={<EventsPage />} />
 				<Route path='event/:id' element={<EventDetails />} />
+				<Route path='event/edit/:id' element={<EditEvent />} />
 				<Route path='about' element={<About />} />
 				<Route element={<ProtectedRoute coAdminLevelAccess={true} />}>
 					<Route path='videos/new' element={<NewVideo />} />
