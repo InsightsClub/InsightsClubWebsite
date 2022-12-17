@@ -124,6 +124,7 @@
     letter-spacing: 0.015em;
     color: #000000;
     width: 100%;
+    white-space: pre-wrap;
 }
 .video-thumb {
     width: 35vw;
