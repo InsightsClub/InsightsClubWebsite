@@ -3,6 +3,7 @@ import './eventContainerStyles.scss';
 import EventDetails from '../DetailEvent/eventDetails';
 import { PopupContext } from '../../contexts/popupContext';
 import { Link } from 'react-router-dom';
+import { useCookies } from "react-cookie";
 
 const monthText = (num) => {
   switch (num) {
@@ -36,6 +37,7 @@ const monthText = (num) => {
 }
 
 const EventsContainer = ({ event }) => {
+  const [cookies] = useCookies(["user"]);
   const { popupTrigger, setPopupTrigger, eventData, setEventData } =
     useContext(PopupContext);
   var time = event.date.substr(11, 5);
@@ -72,11 +74,19 @@ const EventsContainer = ({ event }) => {
               ) : (
                 ""
               )}
-              <div className="edit-delete" style={{ margin: "20px" }}>
-                <Link to={`/event/edit/${event._id}`} state={{data: event}} onClick={(e) => e.stopPropagation()}>
-                  <button>Edit</button>
-                </Link>
-              </div>
+              {(cookies.hasOwnProperty("user") &&
+                Object.keys(cookies.user).length !== 0 && cookies.user.isAdmin) ?
+                (
+                  <div className="edit-delete" style={{ margin: "20px" }}>
+                    <Link
+                      to={`/event/edit/${event._id}`}
+                      state={{ data: event }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <button>Edit</button>
+                    </Link>
+                  </div>
+                ) : ""}
             </div>
             <div className="date">
               {date} {monthText(month)}
