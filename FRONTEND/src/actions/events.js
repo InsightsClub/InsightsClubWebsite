@@ -99,7 +99,7 @@ export const createEvents = (event) => async (dispatch) => {
 
 export const updateEvent = (id, event) => async (dispatch) => {
 	try {
-		const { data } = await Update(id, event, eventsUrl);
+		const { data } = await axios.put(`${eventsUrl}/${id}`, event);
 
 		dispatch({ type: UPDATE, payload: data });
 	} catch (error) {

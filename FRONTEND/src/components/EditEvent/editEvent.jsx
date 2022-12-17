@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './newEvent.styles.scss'
-import { clearErrors, createEvents, updateEvent } from '../../actions/events';
-import { NEW_EVENT_RESET, UPDATE_EVENT_RESET } from '../../constants/eventsActionTypes';
+import { clearErrors, updateEvent } from '../../actions/events';
+import { UPDATE } from '../../constants/eventsActionTypes';
 import { useLocation } from 'react-router-dom';
 
 const EditEvent = () => {
@@ -31,7 +31,7 @@ const EditEvent = () => {
 
     if (success) {
       alert("Event updated successfully");
-      dispatch({ type: UPDATE_EVENT_RESET });
+      dispatch({ type: UPDATE });
     }
   }, [dispatch, error, success]);
 
