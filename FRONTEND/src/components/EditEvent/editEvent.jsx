@@ -15,25 +15,11 @@ const EditEvent = () => {
 
   const dispatch = useDispatch();
   
-  const { error, success } = useSelector((state) => state.newEvent);
 
   const [status, setStatus] = useState(eventData.status);
   const [link, setLink] = useState(eventData.link);
-  const [winners, setWinners] = useState(eventData.winners.map((w) => `${w}`));
+  const [winners, setWinners] = useState("");
 
-
-  useEffect(() => {
-    if (error) {
-      alert("Something went wrong");
-      console.log(error);
-      dispatch(clearErrors());
-    }
-
-    if (success) {
-      alert("Event updated successfully");
-      dispatch({ type: UPDATE });
-    }
-  }, [dispatch, error, success]);
 
 
     const handleSubmit = (e) => {
@@ -50,6 +36,8 @@ const EditEvent = () => {
 
         
       dispatch(updateEvent(eventData._id, myForm));
+
+
     };
 
   return (
@@ -79,12 +67,21 @@ const EditEvent = () => {
           value={link}
           onChange={(e) => setLink(e.target.value)}
         />
-        <input
-          type="text"
-          placeholder="Winners"
-          value={winners}
-          onChange={(e) => setWinners(e.target.value)}
-        />
+        {eventData?.winners.length > 0 ? (
+          <input
+            type="text"
+            placeholder="Winners"
+            value={eventData?.winners.map((w) => `${w}`)}
+            disabled
+          />
+        ) : (
+          <input
+            type="text"
+            placeholder="Winners"
+            value={winners}
+            onChange={(e) => setWinners(e.target.value)}
+          />
+        )}
 
         <button type="submit">Update</button>
       </form>

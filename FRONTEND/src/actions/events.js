@@ -99,11 +99,13 @@ export const createEvents = (event) => async (dispatch) => {
 
 export const updateEvent = (id, event) => async (dispatch) => {
 	try {
+		console.log("event: ", event);
 		const { data } = await axios.put(`${eventsUrl}/${id}`, event);
-
 		dispatch({ type: UPDATE, payload: data });
+		alert("Updated Successfully");
 	} catch (error) {
 		console.log(error.message);
+		alert("Something went wrong")
 	}
 };
 
