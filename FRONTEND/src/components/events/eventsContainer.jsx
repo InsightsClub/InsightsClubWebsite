@@ -73,10 +73,9 @@ const EventsContainer = ({ event }) => {
                 ""
               )}
               <div className="edit-delete" style={{ margin: "20px" }}>
-                <Link to={`/event/edit/${event._id}`} state={{data: event}}>
+                <Link to={`/event/edit/${event._id}`} state={{data: event}} onClick={(e) => e.stopPropagation()}>
                   <button>Edit</button>
                 </Link>
-                <button>Delete</button>
               </div>
             </div>
             <div className="date">

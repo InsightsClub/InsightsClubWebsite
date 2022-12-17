@@ -11,13 +11,16 @@ const EditEvent = () => {
   const location = useLocation();
   const eventData = location?.state?.data;
 
+  // console.log(eventData)
+
   const dispatch = useDispatch();
   
   const { error, success } = useSelector((state) => state.newEvent);
 
-  const [values, setValues] = useState(eventData);
+  const [status, setStatus] = useState(eventData.status);
+  const [link, setLink] = useState(eventData.link);
+  const [winners, setWinners] = useState(eventData.winners.map((w) => `${w}`));
 
-  const [image, setImage] = useState([]);
 
   useEffect(() => {
     if (error) {
@@ -33,41 +36,17 @@ const EditEvent = () => {
   }, [dispatch, error, success]);
 
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-  }
-
-
-  // Convert image to base 64
-  const handleFileInputChange = (e) => {
-    const file = e.target.files[0];
-    setFileToBase(file);
-  }
-
-  const setFileToBase = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setImage(reader.result);
-    }
-  }
-
     const handleSubmit = (e) => {
       e.preventDefault();
 
       const myForm = new FormData();
 
-      myForm.set("title", values.title);
-      myForm.set("shortDescription", values.shortDescription);
-      myForm.set("description", values.description);
-      myForm.set("date", values.date);
-      myForm.set("domain", values.domain);
-      myForm.set("department", values.department);
-      myForm.set("status", values.status);
-      myForm.set("mode", values.mode);
-      myForm.set("venue", values.venue);
-      // myForm.set("image", image);
+      myForm.set("status", status);
+      myForm.set("link", link);
+
+      let winnerArray = winners?.length > 0 ?  winners?.split(",") : [];
+
+      myForm.set("winners", winnerArray);
 
         
       dispatch(updateEvent(eventData._id, myForm));
@@ -77,76 +56,37 @@ const EditEvent = () => {
     <div className="form-main-container">
       <form encType="multipart/form-data" onSubmit={handleSubmit}>
         <input
-          onChange={handleChange}
           type="text"
           placeholder="Event name"
-          value={values.title}
+          value={eventData.title}
+          disabled
         />
-        <input
-          onChange={handleChange}
-          type="datetime-local"
-          placeholder="Date"
-          value={values.date}
-        />
-        <input
-          onChange={handleChange}
-          type="text"
-          placeholder="Short Description"
-          value={values.shortDescription}
-        />
-        <input
-          onChange={handleChange}
-          type="text"
-          placeholder="Description"
-          value={values.description}
-        />
-        <input
-          onChange={handleChange}
-          type="text"
-          placeholder="Domain"
-          value={values.domain}
-        />
-        <input
-          onChange={handleChange}
-          type="text"
-          placeholder="Department"
-          value={values.department}
-        />
-        <label htmlFor="mode">Mode</label>
-        <select
-          onChange={handleChange}
-          name="mode"
-          id="mode"
-          value={values.mode}
-        >
-          <option value="Online">Online</option>
-          <option value="Offline">Offline</option>
-          <option value="Hybrid">Hybrid</option>
-        </select>
 
         <label htmlFor="status">Status</label>
         <select
-          onChange={handleChange}
+          onChange={(e) => setStatus(e.target.value)}
           name="status"
           id="status"
-          value={values.status}
+          value={status}
         >
           <option value="past">Past Event</option>
           <option value="upcoming">Upcoming Event</option>
           <option value="ongoing">Ongoing Event</option>
         </select>
         <input
-          onChange={handleChange}
           type="text"
-          placeholder="Venue"
-          value={values.venue}
+          placeholder="Link"
+          value={link}
+          onChange={(e) => setLink(e.target.value)}
         />
-        {/* <input
-          onChange={handleFileInputChange}
-          type="file"
-          placeholder="image"
-        /> */}
-        <button type="submit">Submit</button>
+        <input
+          type="text"
+          placeholder="Winners"
+          value={winners}
+          onChange={(e) => setWinners(e.target.value)}
+        />
+
+        <button type="submit">Update</button>
       </form>
     </div>
   );
