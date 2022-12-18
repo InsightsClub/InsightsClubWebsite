@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "@fontsource/mulish";
 import "@fontsource/inter";
 import './newVideo.css';
 import axios from "axios";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-function NewVideo() {
-
+function EditVideo() {
     const [title, setTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [embed, setEmbed] = useState("")
     const [image, setImage] = useState([])
+    const { id } = useParams()
+
+    const location = useLocation()
+    const data = location.state?.video
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if(!location.state) {
+            navigate("/videos");
+        } else {
+            setTitle(data.title)
+            setDesc(data.description)
+            setEmbed(data.embedLink)
+        }
+    }, [])
 
     const handleFileInputChange = (e) => {
         const file = e.target.files[0];
@@ -39,8 +54,8 @@ function NewVideo() {
         myForm.set("thumbnail", image)
 
         await axios
-            .post(
-                `${process.env.REACT_APP_BACKEND_URL}/video/new`,
+            .put(
+                `${process.env.REACT_APP_BACKEND_URL}/video/edit/${id}`,
                 myForm,
                 {
                     headers: { "Content-Type": "application/json" },
@@ -48,7 +63,7 @@ function NewVideo() {
             )
             .then((data) => {
                 console.log(data)
-                alert("Video added successfully !!")
+                alert("Video edited successfully !!")
             })
             .catch((err) => {
                 console.error(err)
@@ -59,7 +74,7 @@ function NewVideo() {
     return (
         <div className="video-form">
             <form encType="multipart/form-data" onSubmit={handleSubmit}>
-            <input
+                <input
                     onChange={(e) => setTitle(e.target.value)}
                     type="text"
                     placeholder="Video name"
@@ -91,4 +106,4 @@ function NewVideo() {
     );
 }
 
-export default NewVideo
+export default EditVideo

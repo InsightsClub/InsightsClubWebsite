@@ -95,6 +95,16 @@ function Video() {
                         : ''
                 }
             </div>
+            {
+                cookies.hasOwnProperty("user")
+                && Object.keys(cookies.user).length !== 0
+                && (cookies.user.isCoAdmin || cookies.user.isAdmin) && videos[currentVideo] &&
+                <Link to={`edit/${videos[currentVideo]._id}`}
+                className="edit-videos-button"
+                state={{video: videos[currentVideo]}}>
+                    Edit details
+                </Link>
+            }
             <Footer />
         </Fragment>
     );

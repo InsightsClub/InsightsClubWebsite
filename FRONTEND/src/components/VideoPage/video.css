@@ -83,6 +83,32 @@
     transform: rotate(720deg);
 }
 
+.edit-videos-button {
+    box-sizing: border-box;
+    margin: 0;
+    width: 150px;
+    margin-left: calc(50% - 75px);
+    padding: 15px;
+    background: linear-gradient( 269.54deg, #ffa852 -9.52%, rgba(255, 226, 90, 0.35) 100% );
+    border: none;
+    border-radius: 18.0556px;
+    
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17.3333px;
+    line-height: 21px;
+    color: #000000;
+    
+    display: inline-block;
+    transition: all 0.2s ease-out;
+}
+.edit-videos-button:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
 /* Video details */
 .video-info {
     min-height: 666px;

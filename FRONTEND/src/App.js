@@ -15,25 +15,25 @@ import NewEvent from "./components/NewEvent/newEvent";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import NewVideo from "./components/VideoPage/NewVideo";
 import EditEvent from "./components/EditEvent/editEvent";
+import EditVideo from "./components/VideoPage/EditVideo";
 
 function App() {
 	return (
 		<Routes>
 			<Route path='/' element={<Navbar />}>
 				<Route exact path='' element={<Landing />} />
+				<Route path='about' element={<About />} />
 				<Route path='events' element={<EventsPage />} />
 				<Route path='event/:id' element={<EventDetails />} />
-				<Route path='event/edit/:id' element={<EditEvent />} />
-				<Route path='about' element={<About />} />
 				<Route element={<ProtectedRoute coAdminLevelAccess={true} />}>
+					<Route path='events/newEvent' element={<NewEvent />} />
+					<Route path='event/edit/:id' element={<EditEvent />} />
 					<Route path='videos/new' element={<NewVideo />} />
+					<Route path='videos/edit/:id' element={<EditVideo />} />
 				</Route>
 				<Route path='videos' element={<VideoPage />} />
 				<Route path='articles' element={<ArticleLanding />} />
 				<Route path='article/:id' element={<DetailedArticle />} />
-				<Route element={<ProtectedRoute coAdminLevelAccess={true} />}>
-					<Route path='events/newEvent' element={<NewEvent />} />
-				</Route>
 				<Route path='profile' element={<Profile />} />
 			</Route>
 
