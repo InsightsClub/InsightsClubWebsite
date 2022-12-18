@@ -68,6 +68,63 @@ exports.createVideo = catchAsyncErrors(async (req, res, next) => {
 
 
 
+exports.editVideo = catchAsyncErrors(async (req, res, next) => {
+    if ((req.user.isAdmin || req.user.isCoAdmin) && req.body.hasOwnProperty('embedLink')) {
+        const video_id = req.params.id;
+	    if (!mongoose.Types.ObjectId.isValid(video_id))
+            return next(new ErrorHandler(`${video_id} is not valid !!`, 400));
+
+
+        req.body.embedLink = req.body.embedLink.trim();
+        req.body.title = req.body.title.trim();
+        if (req.body.embedLink === "" || req.body.title === "")
+            return next(new ErrorHandler(`Please provide an embed link and/or title`, 400));
+
+        const img = req.body.thumbnail;
+        
+        if (img) {
+            if (video.thumbnail_id != undefined)
+                await cloudinary.uploader.destroy(video.thumbnail_id);
+            
+            const myCloud = await cloudinary.uploader.upload(img, {
+                folder: "Videos",
+            })
+
+            const { title, description, embedLink } = req.body;
+            const video = await Videos.findByIdAndUpdate(video_id, {
+                title,
+                description,
+                embedLink,
+                thumbnail: myCloud.secure_url,
+                thumbnail_id: myCloud.public_id
+            })
+
+            res.status(200).json({
+                success: true,
+                video
+            })
+        } else {
+            const { title, description, embedLink } = req.body;
+            const video = await Videos.findByIdAndUpdate(video_id, {
+                title,
+                description,
+                embedLink
+            })
+
+            res.status(200).json({
+                success: true,
+                video
+            })
+        }
+    } else if (!req.body.hasOwnProperty('embedLink')) {
+        return next(new ErrorHandler(`Please provide an embed link and/or title`, 400));
+    } else {
+        return next(new ErrorHandler(`You are not authorized to perform this action`, 401));
+    }
+});
+
+
+
 exports.deleteVideo = catchAsyncErrors(async (req, res, next) => {
     if (req.user.isAdmin || req.user.isCoAdmin) {
         const video = await Videos.findById(req.params.id);

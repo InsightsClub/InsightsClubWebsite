@@ -49,6 +49,7 @@ const {
 	getAllVideos,
 	createVideo,
 	deleteVideo,
+	editVideo,
 } = require("../controllers/videoController");
 const verifyUser = require("../middlewares/verifyUser");
 const {
@@ -84,6 +85,7 @@ router.route("/blog/user/:id").get(getBlogByUser);
 
 router.route("/video/all").get(getAllVideos);
 router.route("/video/new").post(verifyUser, createVideo);
+router.route("/video/edit/:id").put(verifyUser, editVideo);
 router.route("/video/:id").delete(verifyUser, deleteVideo);
 
 router.route("/dept/all").get(getAllDept);
