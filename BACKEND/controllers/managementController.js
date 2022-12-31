@@ -5,8 +5,8 @@ const Department = require("../models/departmentsModel");
 const Events = require("../models/eventsModel");
 const Blogs = require("../models/blogModel");
 const cloudinary = require("cloudinary").v2;
-// const dotenv = require("dotenv");
-// dotenv.config({ path: "config/config.env" });
+const dotenv = require("dotenv");
+dotenv.config({ path: "config/config.env" });
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_KEY,

@@ -1,8 +1,8 @@
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const jwt = require("jsonwebtoken");
-// const dotenv = require("dotenv");
-// dotenv.config({ path: "config/config.env" });
+const dotenv = require("dotenv");
+dotenv.config({ path: "config/config.env" });
 
 module.exports = catchAsyncErrors(async (req, res, next) => {
 	try {

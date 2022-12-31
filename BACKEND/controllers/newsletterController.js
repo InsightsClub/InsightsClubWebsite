@@ -3,8 +3,8 @@ const ErrorHandler = require('../utils/errorHandler');
 const mongoose = require('mongoose');
 const Newsletter = require("../models/newsletter");
 const cloudinary = require("cloudinary").v2;
-// const dotenv = require("dotenv");
-// dotenv.config({ path: "config/config.env" });
+const dotenv = require("dotenv");
+dotenv.config({ path: "config/config.env" });
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_KEY,

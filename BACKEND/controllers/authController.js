@@ -6,8 +6,8 @@ const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 const google = require("googleapis");
 const cloudinary = require("cloudinary").v2;
-// const dotenv = require("dotenv");
-// dotenv.config({ path: "config/config.env" });
+const dotenv = require("dotenv");
+dotenv.config({ path: "config/config.env" });
 cloudinary.config({
 	cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
 	api_key: process.env.CLOUDINARY_KEY,
