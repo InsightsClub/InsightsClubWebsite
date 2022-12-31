@@ -7,8 +7,11 @@
 	outline: none;
 	padding: 1rem;
 	margin-top: 1.2em;
+	width: 80vw;
+	margin-left: 10vw;
+	margin-right: 10vw;
 	font-family: "Mulish";
-	margin: 1rem 1rem 1rem 1rem;
+	
 }
 .profile-event-header {
 	display: flex;
@@ -59,33 +62,78 @@
 }
 @media (max-width: 600px) {
 	.profile-event-header-name {
-		font-size: 0.7rem;
+		font-size: 13px;
 		font-weight: 600;
 		margin-bottom: 10px;
+		margin-left: 10px;
+		margin-top: 10px;
 	}
 	.profile-b {
-		font-size: 0.5rem;
+		font-size: 7px;
+		font-weight: 400;
+		margin-left: 10px;
+		margin-top: 10px;
 	}
 	.profile-date {
 		justify-content: space-between;
 		width: 60%;
 	}
+
+	.profile-b-date{
+		font-size: 7px;
+		font-weight: 400;
+		margin-right: 10px;
+		margin-top: 10px;
+	}
 	.profile-event-main-content {
-		font-size: 0.5rem;
+		font-size: 7px;
+		font-weight: 400;
+		line-height: 8.04px;
+		margin-left: 10px;
+		margin-top: 10px;
+		
 	}
 
 	.profile-event-register-button {
-		width: 15px;
-		height: 5vh;
+		width: 53px;
+		height: 19px;
+		display: flex;
 		justify-content: center;
 		align-content: center;
-		margin-left: -50px;
+		/* margin:auto; */
+		border-radius: 4px;
+		 padding-bottom: 12px;  
+		margin-top: 20px; 
+		margin-right: 10px;
 	}
 	.profile-mode {
-		font-size: 0.5rem;
+		font-size: 10px;
+		font-weight: 400;
+		font-family: "Mulish";
+		margin-left: 10px;
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
 	.profile-r {
-		font-size: 0.5rem;
+		font-size: 7px;
 		text-align: center;
+		justify-content: center;
 	}
+
+	.profile-event-container{
+		width: 90vw;
+	margin-left: 5vw;
+	margin-right: 5vw;
+	padding: 0;
+	}
+
+	.profile-event-footer p {
+		margin-left: 0.3rem;
+		font-size: 10px;
+		padding-top: 0;
+	}
+
+	
+
+	
 }
