@@ -94,6 +94,7 @@
 	border: none;
 	border-radius: 10px;
 	margin-right: 20px;
+	margin-bottom: 20px;
 }
 .profile-blog-delete:hover {
 	transform: scale(1.1);
