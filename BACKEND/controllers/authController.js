@@ -18,21 +18,30 @@ const OAuth2Client = new google.Auth.OAuth2Client(
 	process.env.G_OAUTH_SECRET,
 	process.env.G_OAUTH_REDIRECT_URI
 );
-OAuth2Client.setCredentials({
-	refresh_token: process.env.G_OAUTH_REFRESH_TOKEN,
-});
-const accessToken = OAuth2Client.getAccessToken();
-let transporter = nodemailer.createTransport({
-	service: "gmail",
-	auth: {
-		type: "OAuth2",
-		user: process.env.EMAILER,
-		clientId: process.env.G_OAUTH_ID,
-		clientSecret: process.env.G_OAUTH_SECRET,
-		refreshToken: process.env.G_OAUTH_REFRESH_TOKEN,
-		accessToken: accessToken,
-	},
-});
+
+let transporter = null;
+(async () => {
+		try {
+		OAuth2Client.setCredentials({
+			refresh_token: process.env.G_OAUTH_REFRESH_TOKEN,
+		});
+		const accessToken = await OAuth2Client.getAccessToken();
+
+		transporter = nodemailer.createTransport({
+			service: "gmail",
+			auth: {
+				type: "OAuth2",
+				user: process.env.EMAILER,
+				clientId: process.env.G_OAUTH_ID,
+				clientSecret: process.env.G_OAUTH_SECRET,
+				refreshToken: process.env.G_OAUTH_REFRESH_TOKEN,
+				accessToken: accessToken,
+			},
+		});
+	} catch(err) {
+		console.error(err);
+	}
+})()
 
 const getRandomText = () => {
 	const length = 11; // 11 character random text
@@ -141,6 +150,8 @@ exports.signup = catchAsyncErrors(async (req, res, next) => {
 
 	const user = new User(usr);
 	try {
+		if (transporter === null)
+			return next(new ErrorHandler("Email Transporter is NULL!! Try updating refresh token.", 500));
 		user.save(async (err, doc) => {
 			if (err && err.code === 11000) {
 				return next(
@@ -216,6 +227,8 @@ exports.signup = catchAsyncErrors(async (req, res, next) => {
 exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 	if (!req.body.hasOwnProperty("email"))
 		return next(new ErrorHandler("Email is required !!", 400));
+	if (transporter === null)
+		return next(new ErrorHandler("Email Transporter is NULL!! Try updating refresh token.", 500));
 	try {
 		const doc = await User.findOne({ email: req.body.email }).lean();
 		if (doc == null) return next(new ErrorHandler("Email not found!!", 404));
@@ -287,6 +300,8 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 
 exports.reset = catchAsyncErrors(async (req, res, next) => {
 	const usr_id = req.params["id"];
+	if (transporter === null)
+		return next(new ErrorHandler("Email Transporter is NULL!! Try updating refresh token.", 500));
 	try {
 		const password = getRandomText();
 		const hashedPass = bcrypt.hashSync(password, 10);
