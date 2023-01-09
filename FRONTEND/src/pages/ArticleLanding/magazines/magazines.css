@@ -1,0 +1,33 @@
+.containerr{
+    display: flex;
+    width:50vw;
+    height:500px;
+    justify-content: space-between;
+    padding-left: 15px;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    margin-bottom: 15px;
+}
+.a{
+    margin-left: 0.5rem;
+    margin-top: 2.5rem;
+    
+}
+@media (max-width:600px) {
+    .containerr{
+        display: flex;
+        width:50vw;
+        height:auto;
+        justify-content:center;
+       
+        
+        padding-top: 1rem;
+        margin-bottom: 15px;
+    }
+    .a{
+        margin-left: 0.2rem;
+        margin-top: 2.5rem;
+        
+    }
+    
+  }

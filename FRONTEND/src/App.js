@@ -14,6 +14,9 @@ import Profile from "./pages/Profile/Profile";
 import NewEvent from "./components/NewEvent/newEvent";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import NewVideo from "./components/VideoPage/NewVideo";
+import Magazines from "./pages/ArticleLanding/magazines/Magazines";
+import Articles from "./components/Articles/Articles";
+import Article from "./components/Articles/Article/Article";
 
 function App() {
 	return (
@@ -27,8 +30,13 @@ function App() {
 					<Route path='videos/new' element={<NewVideo />} />
 				</Route>
 				<Route path='videos' element={<VideoPage />} />
-				<Route path='articles' element={<ArticleLanding />} />
+				<Route path='articles' element={<ArticleLanding />}>
+					<Route exact path='page1'element={<Articles/>}/>
+					<Route path='page2' element={<Magazines/>}/>
+				</Route>
+				
 				<Route path='article/:id' element={<DetailedArticle />} />
+				
 				<Route element={<ProtectedRoute coAdminLevelAccess={true} />}>
 					<Route path='events/newEvent' element={<NewEvent />} />
 				</Route>
