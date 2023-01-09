@@ -256,16 +256,6 @@ exports.updateEvent = catchAsyncErrors(async (req, res, next) => {
         if (!event) {
             return next(new ErrorHandler(`Event details with event id: ${req.params.id} not found !!`, 404));
         }
-        if (req.files !== null && req.files.image !== undefined) {
-            await cloudinary.uploader.destroy(event.image.public_id);
-            const newImage = await cloudinary.uploader.upload(req.files.image.tempFilePath, {
-            folder: "Events",
-            });
-            newEventData.image = {
-                public_id: newImage.public_id,
-                url: newImage.secure_url
-            };
-        }
         event = await Events.findByIdAndUpdate(req.params.id, newEventData, {
             new: true,
             runValidators: true,
@@ -273,7 +263,8 @@ exports.updateEvent = catchAsyncErrors(async (req, res, next) => {
         });
         res.status(200).json({
             success: true,
-            message: "Event details updated"
+            message: "Event details updated",
+            event
         });
     }
     else {

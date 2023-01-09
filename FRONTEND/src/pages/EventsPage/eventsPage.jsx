@@ -30,6 +30,12 @@ const EventsPage = () => {
 
   const events = useSelector((state) => state.events);
 
+  events?.sort((a, b) => {
+    let da = new Date(a.date),
+      db = new Date(b.date);
+    return db - da;
+  });
+
 	return (
     <>
       <div className="events">

@@ -2,9 +2,9 @@ import React, { useState, Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import "./Profile.css";
 import Header from "../../components/Profile/Header/Header";
-import EditProfile from "../../components/Profile/EditProfile/EditProfile";
+// import EditProfile from "../../components/Profile/EditProfile/EditProfile";
 import Blogs from "../../components/Profile/Blogs/Blogs";
-import Events from "../../components/Profile/Events/Events";
+// import Events from "../../components/Profile/Events/Events";
 import Footer from "../../components/Footer/Footer";
 import { useCookies } from "react-cookie";
 
@@ -23,17 +23,17 @@ function Profile() {
 							onClick={() => setState("BLOGS")}>
 							<p className='ab'>My blogs</p>
 						</div>
-						<div
+						{/* <div
 							className='profile-main-navbar-events'
 							style={{ background: state === "EVENTS" ? "#ffc776" : "#FFFFFF" }}
 							onClick={() => setState("EVENTS")}>
 							<p className='ab'>Registered events</p>
-						</div>
+						</div> */}
 					</div>
 					<div className='Header-profile-line'></div>
-					{state === "BLOGS" ? <Blogs /> : <Events />}
+					{state === "BLOGS" ? <Blogs /> : "name" }
 				</div>
-				<EditProfile />
+				{/* <EditProfile /> */}
 			</div>
 			<Footer />
 			<Outlet />

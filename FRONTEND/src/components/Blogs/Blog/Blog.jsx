@@ -6,6 +6,7 @@ import ACTIVE_LIKE from "../../../media/activeLikeVector.svg";
 
 function Blog({ blog }) {
 	const navigate = useNavigate();
+
 	return (
 		<>
 			<div

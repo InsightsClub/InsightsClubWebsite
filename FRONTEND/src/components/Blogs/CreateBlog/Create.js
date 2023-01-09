@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import "./Create.css";
-import { createBlogs } from "../../../actions/blogs";
+import { createBlogs, updateBlogs } from "../../../actions/blogs";
 import Navbar from "../../Navbar/Navbar.jsx";
 import { EditorState, ContentState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
@@ -25,12 +25,7 @@ const Create = () => {
 	const [saving, setSaving] = useState(false);
 	const [error, setError] = useState("");
 
-	useEffect(() => {
-		if (!params.id) return;
-		getBlog();
-	});
-
-	const getBlog = async () => {
+	const getBlog = useCallback(async () => {
 		try {
 			const response = await axios({
 				method: "GET",
@@ -43,13 +38,11 @@ const Create = () => {
 				} else {
 					setTitle(response.data.blog.title);
 					setContent(response.data.blog.content);
-
 					const contentBlock = htmlToDraft(response.data.blog.content);
 					const contentState = ContentState.createFromBlockArray(
 						contentBlock.contentBlocks
 					);
 					const editorState = EditorState.createWithContent(contentState);
-
 					setEditorState(editorState);
 				}
 			} else {
@@ -58,7 +51,7 @@ const Create = () => {
 		} catch (error) {
 			setError(error.message);
 		}
-	};
+	}, [params.id]);
 
 	const postBlog = async (e) => {
 		e.preventDefault();
@@ -74,7 +67,13 @@ const Create = () => {
 			content,
 		};
 		try {
-			dispatch(createBlogs(data));
+			if (!params.id) {
+				dispatch(createBlogs(data));
+			} else {
+				console.log(params.id);
+				console.log(data);
+				dispatch(updateBlogs(params.id, data));
+			}
 		} catch (error) {
 			setError(error.message);
 		} finally {
@@ -83,6 +82,11 @@ const Create = () => {
 		console.log("error: " + error);
 		navigate("/profile");
 	};
+
+	useEffect(() => {
+		if (!params.id) return;
+		getBlog();
+	}, []);
 
 	return (
 		<div className='create-blog-main-container'>
@@ -168,7 +172,7 @@ const Create = () => {
 					<button
 						className='create-blog-post-button'
 						onClick={(e) => postBlog(e)}>
-						Publish
+						{params.id ? "Edit" : "Publish"}
 					</button>
 				</form>
 			</div>

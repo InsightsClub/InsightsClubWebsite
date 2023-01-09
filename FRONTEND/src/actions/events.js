@@ -97,17 +97,19 @@ export const createEvents = (event) => async (dispatch) => {
 	}
 };
 
-export const updateEvents = (id, event) => async (dispatch) => {
+export const updateEvent = (id, event) => async (dispatch) => {
 	try {
-		const { data } = await Update(id, event, eventsUrl);
-
+		console.log("event: ", event);
+		const { data } = await axios.put(`${eventsUrl}/${id}`, event);
 		dispatch({ type: UPDATE, payload: data });
+		alert("Updated Successfully");
 	} catch (error) {
 		console.log(error.message);
+		alert("Something went wrong")
 	}
 };
 
-export const deleteEvents = (id) => async (dispatch) => {
+export const deleteEvent = (id) => async (dispatch) => {
 	try {
 		await Delete(id, eventsUrl);
 

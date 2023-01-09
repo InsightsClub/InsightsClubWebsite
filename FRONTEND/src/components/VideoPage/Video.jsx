@@ -80,12 +80,12 @@ function Video() {
                 <div className="video-text">
                     <h4 className="video-title">
                         {
-                            videos[currentVideo] ? videos[currentVideo].title : 'Video Title'
+                            videos[currentVideo] ? videos[currentVideo].title : 'No title provided'
                         }
                     </h4>
                     <p className="video-description">
                         {
-                            videos[currentVideo] ? videos[currentVideo].description : 'Video Description'
+                            videos[currentVideo] ? videos[currentVideo].description : 'No description provided.'
                         }
                     </p>
                 </div>
@@ -95,6 +95,16 @@ function Video() {
                         : ''
                 }
             </div>
+            {
+                cookies.hasOwnProperty("user")
+                && Object.keys(cookies.user).length !== 0
+                && (cookies.user.isCoAdmin || cookies.user.isAdmin) && videos[currentVideo] &&
+                <Link to={`edit/${videos[currentVideo]._id}`}
+                className="edit-videos-button"
+                state={{video: videos[currentVideo]}}>
+                    Edit details
+                </Link>
+            }
             <Footer />
         </Fragment>
     );
