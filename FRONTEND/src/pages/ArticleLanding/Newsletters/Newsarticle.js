@@ -5,7 +5,9 @@ import a from './Insights Club Newsletter-1.pdf';
 import b from './IC NEWSLETTER SEPTEMBER ISSUE.pdf';
 import c from './IC Newsletter Oct-Nov Issue.pdf';
 import sc from './sc.png';
-
+import d from './IC Newsletter JAN.pdf';
+import v from './vsr.png';
+import v0 from './ve.png';
 import me from './me.jpg';
 import i from './i.jpg';
 import e from './e.jpg';
@@ -20,7 +22,8 @@ const Newsarticle=()=>{
             <div className='divv'>
                 <Base1 className='az' img={ins} link={a}/>           
                 <Base1 className='az' img={s} link={b}/>    
-                <Base1 className='az' img={sc} link={c}/>     
+                <Base1 className='az' img={sc} link={c}/>  
+                <Base1 className='az' img={v} link={d}/>    
                 
             </div>
             
