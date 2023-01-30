@@ -12,8 +12,10 @@ import me from './me.jpg';
 import i from './i.jpg';
 import e from './e.jpg';
 import ins from './a.jpg';
+import dec from './IC Newsletter DEC-2.pdf';
 import './Newsarticle.css'
 import s from './s.png';
+import decem from './dec.png';
 const Newsarticle=()=>{
     return(
         <div className='container2'>
@@ -23,6 +25,7 @@ const Newsarticle=()=>{
                 <Base1 className='az' img={ins} link={a}/>           
                 <Base1 className='az' img={s} link={b}/>    
                 <Base1 className='az' img={sc} link={c}/>  
+                <Base1 className='az' img={decem} link={dec}/> 
                 <Base1 className='az' img={v} link={d}/>    
                 
             </div>
