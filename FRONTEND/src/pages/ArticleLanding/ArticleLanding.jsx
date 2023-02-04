@@ -11,26 +11,8 @@ import Article from "../../components/Articles/Article/Article";
 function ArticleLanding() {
 	return (
     <div className="my">
-      <div className="child1">
-       
       <Header/>
-      <br/>
-      <br/>
       
-      <Outlet/>
-      
-      
-        
-          
-        
-      
-        
-      </div>
-      
-
-      <div className="child2">
-      <Newsarticle />
-      </div>
     </div>
   );
 }

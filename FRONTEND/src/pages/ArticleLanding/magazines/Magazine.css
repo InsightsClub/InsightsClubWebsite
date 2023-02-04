@@ -1,12 +1,22 @@
 .containeer2{
-  height:auto;
-  width:15vw;
-  box-sizing: border-box;
-  margin-left: 30px;
-  border: 1px solid #B9B9B9;
-  border-radius: 5px;
-  align-items: center;
-  padding: 10px;
+  width: 100vw;
+    display: flex;
+    align-items: center;
+    display: flex;
+    padding:5vw;
+    margin-left: 5vw;
+}
+.cont-1{
+  margin-top: 1rem;
+    
+  display: flex;
+  justify-content: space-evenly;
+  width: 90vw;
+  padding-top: 1rem;
+  padding-right: 15vw;
+  flex-wrap: wrap;
+  overflow-x: scroll;
+
 }
 .cnt1{
   width:17rem;
@@ -50,15 +60,18 @@
       
       margin-left: 8px;
   }
+  .cont-1{
+    margin-top: 0.6rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 90vw;
+    padding-top: 1rem;
+    padding-right: 5vw;
+    flex-wrap: wrap;
+    overflow-x: scroll;
+  }
   .containeer2{
-    height:auto;
-    width:20vw;
-    box-sizing: border-box;
-    margin-left: 30px;
-    border: 1px solid #B9B9B9;
-    border-radius: 5px;
-    align-items: center;
-    padding: 10px;
+    width: 90vw;
   }
   
   .a{

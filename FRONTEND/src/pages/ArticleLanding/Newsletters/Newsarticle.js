@@ -19,8 +19,8 @@ import decem from './dec.png';
 const Newsarticle=()=>{
     return(
         <div className='container2'>
-            <div className='txtt'>Newsletters</div>
-            <br/>
+            
+            
             <div className='divv'>
                 <Base1 className='az' img={ins} link={a}/>           
                 <Base1 className='az' img={s} link={b}/>    
