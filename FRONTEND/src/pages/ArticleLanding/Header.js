@@ -24,40 +24,35 @@ const Header = () => {
 
 
     }
-    return ( <
-        div className = 'myy' >
-        <
-        div style = {
-            {
-                backgroundColor: isActive ? '#FFC776' : '',
+    return(
+        <div className='myy'>
+            <ul className='my1'>
+                 <li className='menu-item '>
+						<a className='nav-linkk' href='/articles/page1'>
+									Articles
+						</a>
+				</li>
+				<li className='menu-item '>
+						<a className='nav-linkk' href='/articles/page2'>
+									Magazines
+						</a>
+				</li>
+				<li className='menu-item '>
+						<a className='nav-linkk' href='/articles/page3'>
+									Newsletters
+						</a>
+				</li>
+				<li className='menu-item '>
+						<a className='nav-linkk' href='/articles/page4'>
+									The crazy digesty
+						</a>
+				</li>
 
-            }
-        }
-        onClick = {
-            click1
-        }
-        className = 'my1' >
-        <
-        div className = 'articles-header' > Articles < /div> <
-        /div> <
-        div style = {
-            {
-                backgroundColor: isActivee ? '#FFC776' : '',
-
-            }
-        }
-        onClick = {
-            click2
-        }
-        className = 'my1' >
-        <
-        div className = 'articles-header' > Magazines < /div> <
-        /div>
+            </ul>
+            <Outlet/>
 
 
-        <
-        /div>
-
+        </div>
     )
 }
 export default Header;
