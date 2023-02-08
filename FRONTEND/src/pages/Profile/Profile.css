@@ -4,7 +4,6 @@
 	margin-left: 6rem;
 	margin-top: 2rem;
 	margin-right: 6rem;
-	
 }
 
 .profile-main-header {
@@ -15,17 +14,15 @@
 	/* background: white;
 	border: 1px solid #b9b9b9;
 	border-radius: 9px;
-	margin: au; */ 
+	margin: au; */
 
 	max-width: 938px;
-    width: 100%;
-    /* height: 1254px; */
-    background: white;
-    border: 1px solid #b9b9b9;
-    border-radius: 9px;
-    margin: auto;
-
-	
+	width: 100%;
+	/* height: 1254px; */
+	background: white;
+	border: 1px solid #b9b9b9;
+	border-radius: 9px;
+	margin: auto;
 }
 .profile-main-navbar {
 	display: flex;
@@ -45,8 +42,7 @@
 	height: 10vh; */
 	/* justify-items: center; */
 	/* align-items: center; */
-	
-} 
+}
 .profile-main-navbar-events {
 	width: 50vw;
 	height: 10vh;
@@ -78,8 +74,8 @@
 		/* background: white;
 		border: 1px solid #b9b9b9;
 		border-radius: 9px;
-		margin: au; */ 
-	
+		margin: au; */
+
 		max-width: 938px;
 		width: 100%;
 		/* height: 1254px; */
@@ -88,19 +84,13 @@
 		border-radius: 9px;
 		/* margin: auto; */
 		margin: 10px;
-	
-		
 	}
 
 	.profile-main-container {
 		display: flex;
 		flex-direction: row;
-		
-		width:100%;
-		margin: auto;
-		
-		
-	}
-	
-}
 
+		width: 100%;
+		margin: auto;
+	}
+}

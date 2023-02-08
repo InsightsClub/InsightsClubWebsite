@@ -80,9 +80,10 @@ function BlogsNavbar() {
 							</ul>
 						) : (
 							<>
-								<div className='blogsnavbar-search_box'>
+								{/* WORK IN PROGRESS */}
+								{/* <div className='blogsnavbar-search_box'>
 									<input type='search' placeholder='Search' />
-								</div>
+								</div> */}
 							</>
 						)}
 						<button

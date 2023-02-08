@@ -30,6 +30,7 @@ function Blogs() {
 		{ Element: { name: "Event", address: "/events" } },
 		{ Element: { name: "Videos", address: "/videos" } },
 		{ Element: { name: "About", address: "/about" } },
+		{ Element: { name: "News", address: "/articles" } },
 	];
 	return (
 		<>
