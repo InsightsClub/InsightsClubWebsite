@@ -80,7 +80,7 @@
     line-height: 30px;
     color: #B9B9B9;
 }
-.auth-input-field {
+input.auth-input-field {
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
@@ -94,13 +94,13 @@
     border-bottom: 2px solid #B9B9B9;
     transition: border-color 0.2s ease-out;
 }
-.auth-input-field::placeholder {
+input.auth-input-field::placeholder {
     color: #BABABA;
 }
-.auth-input-field.invalid-input {
+input.auth-input-field.invalid-input {
     border-bottom-color: #EC4646;
 }
-.auth-input-field:focus {
+input.auth-input-field:focus {
     outline: none;
     border-bottom: 2px solid #7176FC;
 }
@@ -189,7 +189,7 @@
     .scrollable-child {
         height: 85vh;
     }
-    .auth-input-field {
+    input.auth-input-field {
         margin-bottom: 15px;
         font-size: 20px;
     }
