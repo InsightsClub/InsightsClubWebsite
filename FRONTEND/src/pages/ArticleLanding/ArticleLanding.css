@@ -4,7 +4,7 @@
     display: flex;
     width: 100vw;
     height: 100vh;
-    padding: 5vh 5vw;
+    margin-bottom: 5vh;
     justify-content: space-between;
 }
 .child1{

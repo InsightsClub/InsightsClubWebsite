@@ -16,6 +16,7 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import NewVideo from "./components/VideoPage/NewVideo";
 import Magazines from "./pages/ArticleLanding/magazines/Magazines";
 import Articles from "./components/Articles/Articles";
+import Newsarticle from "./pages/ArticleLanding/Newsletters/Newsarticle";
 
 
 function App() {
@@ -35,7 +36,9 @@ function App() {
 				<Route path='videos' element={<VideoPage />} />
 				<Route path='articles' element={<ArticleLanding />}>
 					<Route exact path='page1'element={<Articles/>}/>
-					<Route path='page2' element={<Magazines/>}/>
+					<Route path='page2' element={<Newsarticle/>}/>
+					<Route path='page3' element={<Newsarticle/>}/>
+					<Route path='page4' element={<Newsarticle/>}/>
 				</Route>
 				
 				<Route path='article/:id' element={<DetailedArticle />} />

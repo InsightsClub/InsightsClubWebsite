@@ -19,6 +19,8 @@ function Articles() {
 				
 				<div className='articles-container'>
 					<Article article={article}/>
+					<Article article={article}/>
+					<Article article={article}/>
 				</div>
 			</div>
 			

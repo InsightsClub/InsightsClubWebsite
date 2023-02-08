@@ -1,12 +1,30 @@
 .myy{
-    display:flex;
     
-
+    background-color:#FFE39F;
+    width:100vw;
+    height:7vh;
+    
 }
 .my1{
+    display: flex;
     
-    width:auto;
-    height:15vh;
-    padding:0.5rem;
-    padding-left: 0.5rem;
+    height:12vh;
+    text-decoration: none;
+    justify-content: space-around;
+    list-style-type: none;
+    
+    
+}
+.nav-linkk{
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 400;
+}
+.menu-item{
+    font-size: 10px;
+}
+@media (max-width:600px) {
+    .nav-linkk{
+        font-size: 9px;
+    }
 }
