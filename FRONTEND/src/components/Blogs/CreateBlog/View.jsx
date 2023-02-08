@@ -26,7 +26,6 @@ const View = () => {
 				let { blog } = res.data;
 				setBlog(blog);
 				let likedByArray = blog.likedBy;
-				console.log(likedByArray);
 				for (let i = 0; i < likedByArray.length; i++) {
 					if (likedByArray[i]._id === cookie.user.id) {
 						setLike(true);
@@ -36,8 +35,7 @@ const View = () => {
 					}
 				}
 			});
-		console.log(b);
-	}, [params.id, like, cookie.user]);
+	}, [params.id, like, cookie.user, b]);
 
 	const handleLikes = () => {
 		if (cookie.user.id) {
@@ -47,7 +45,7 @@ const View = () => {
 			setError("Sign in to Like");
 		}
 	};
-	console.log(b?._id);
+
 	if (b) {
 		return (
 			<>
@@ -74,7 +72,12 @@ const View = () => {
 								onClick={() => handleLikes()}
 							/>
 						</div>
-						<p className='view-blog-likesCounter'>{b?.likes}</p>
+						{/* <p className='view-blog-likesCounter'>{b?.likes}</p> */}
+						{cookie.hasOwnProperty("user") ? (
+							<p className='view-blog-likesCounter'>{b?.likes}</p>
+						) : (
+							<p>Please Sign In To like</p>
+						)}
 					</div>
 					<p className='view-blog-error'>{error}</p>
 				</div>

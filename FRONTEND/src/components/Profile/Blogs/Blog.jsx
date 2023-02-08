@@ -2,7 +2,7 @@ import React from "react";
 import "./Blog.css";
 import LIKE from "../../../media/likeVector.svg";
 
-function Blog({ blog, handleDelete }) {
+function Blog({ blog }) {
 	return (
 		<>
 			<div className='profile-blog-container'>
@@ -24,7 +24,7 @@ function Blog({ blog, handleDelete }) {
 				<div className='profile-blog-delete-edit'>
 					<button
 						className='profile-blog-delete'
-						onClick={() => handleDelete(blog._id)}>
+						onClick={() => console.log(blog._id)}>
 						Delete
 					</button>
 					<button className='profile-blog-edit'>Edit</button>
