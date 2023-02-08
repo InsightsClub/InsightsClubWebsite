@@ -35,7 +35,7 @@ function App() {
 				</Route>
 				<Route path='videos' element={<VideoPage />} />
 				<Route path='articles' element={<ArticleLanding />}>
-					<Route exact path='page1'element={<Articles/>}/>
+					<Route exact path='page1'element={<Magazine/>}/>
 					<Route path='page2' element={<Newsarticle/>}/>
 					<Route path='page3' element={<Magazine/>}/>
 					<Route path='page4' element={<Magazine/>}/>
