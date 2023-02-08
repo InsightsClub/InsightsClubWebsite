@@ -17,7 +17,7 @@ import NewVideo from "./components/VideoPage/NewVideo";
 import Magazines from "./pages/ArticleLanding/magazines/Magazines";
 import Articles from "./components/Articles/Articles";
 import Newsarticle from "./pages/ArticleLanding/Newsletters/Newsarticle";
-
+import Magazine from "./pages/ArticleLanding/Magazine";
 
 function App() {
 	return (
@@ -37,8 +37,9 @@ function App() {
 				<Route path='articles' element={<ArticleLanding />}>
 					<Route exact path='page1'element={<Articles/>}/>
 					<Route path='page2' element={<Newsarticle/>}/>
-					<Route path='page3' element={<Newsarticle/>}/>
-					<Route path='page4' element={<Newsarticle/>}/>
+					<Route path='page3' element={<Magazine/>}/>
+					<Route path='page4' element={<Magazine/>}/>
+					
 				</Route>
 				
 				<Route path='article/:id' element={<DetailedArticle />} />
