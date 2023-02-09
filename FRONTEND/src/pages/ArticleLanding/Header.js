@@ -44,7 +44,7 @@ const Header = () => {
 				</li>
 				<li className='menu-item '>
 						<a className='nav-linkk' href='/articles/page4'>
-									The crazy digesty
+                        The Crazy Digest
 						</a>
 				</li>
 
