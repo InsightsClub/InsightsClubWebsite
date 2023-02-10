@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Article from "./Article/Article";
 import "./Articles.css";
 
@@ -15,11 +16,14 @@ function Articles() {
 	return (
 		<>
 			<div className='articles-main-container'>
-				<div className='articles-header'>Articles</div>
+				
 				<div className='articles-container'>
+					<Article article={article}/>
+					<Article article={article}/>
 					<Article article={article}/>
 				</div>
 			</div>
+			
 		</>
 	);
 }

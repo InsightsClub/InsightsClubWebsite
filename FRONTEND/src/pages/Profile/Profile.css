@@ -1,23 +1,34 @@
 .profile-main-container {
 	display: flex;
 	flex-direction: row;
-	margin-left: 2rem;
+	margin-left: 6rem;
 	margin-top: 2rem;
+	margin-right: 6rem;
 }
 
 .profile-main-header {
-	position: relative;
+	/* position: relative;
 	max-width: 938px;
 	width: 60%;
+	/* height: 1254px; */
+	/* background: white;
+	border: 1px solid #b9b9b9;
+	border-radius: 9px;
+	margin: au; */
+
+	max-width: 938px;
+	width: 100%;
 	/* height: 1254px; */
 	background: white;
 	border: 1px solid #b9b9b9;
 	border-radius: 9px;
+	margin: auto;
 }
 .profile-main-navbar {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	background: rgb(255, 199, 118);
 }
 .profile-main-navbar-child {
 	/* background-color: ; */
@@ -27,10 +38,10 @@
 	font-weight: 500;
 }
 .profile-main-navbar-blog {
-	width: 50vw;
-	height: 10vh;
-	justify-items: center;
-	align-items: center;
+	/* width: 50vw;
+	height: 10vh; */
+	/* justify-items: center; */
+	/* align-items: center; */
 }
 .profile-main-navbar-events {
 	width: 50vw;
@@ -43,7 +54,7 @@
 	font-size: 1.7rem;
 	font-family: " Mulish ";
 	font-weight: 550;
-	margin-top: 1.1rem;
+	/* margin-top: 0.5rem; */
 }
 
 @media (max-width: 600px) {
@@ -53,5 +64,33 @@
 		font-family: " Mulish ";
 		font-weight: 550;
 		margin-top: 1.1rem;
+	}
+
+	.profile-main-header {
+		/* position: relative;
+		max-width: 938px;
+		width: 60%;
+		/* height: 1254px; */
+		/* background: white;
+		border: 1px solid #b9b9b9;
+		border-radius: 9px;
+		margin: au; */
+
+		max-width: 938px;
+		width: 100%;
+		/* height: 1254px; */
+		background: white;
+		border: 1px solid #b9b9b9;
+		border-radius: 9px;
+		/* margin: auto; */
+		margin: 10px;
+	}
+
+	.profile-main-container {
+		display: flex;
+		flex-direction: row;
+
+		width: 100%;
+		margin: auto;
 	}
 }

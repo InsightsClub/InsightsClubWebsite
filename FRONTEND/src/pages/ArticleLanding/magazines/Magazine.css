@@ -1,0 +1,88 @@
+.containeer2{
+  width: 100vw;
+    display: flex;
+    align-items: center;
+    display: flex;
+    padding:5vw;
+    margin-left: 5vw;
+}
+.cont-1{
+  margin-top: 1rem;
+    
+  display: flex;
+  justify-content: space-evenly;
+  width: 90vw;
+  padding-top: 1rem;
+  padding-right: 15vw;
+  flex-wrap: wrap;
+  overflow-x: scroll;
+
+}
+.cnt1{
+  width:17rem;
+  height:16.5rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-size: cover;
+  backface-visibility: visible;
+  margin-top: 1.5rem;
+    
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.ct-1{
+  margin-left: 15px;
+}
+.a{
+  font-family: Martel;
+  font-weight: 700;
+  font-size: 20px;
+}
+.b{
+  font-family: Martel;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@media (max-width:600px) {
+  .cnt1{
+      height:150px;
+      width:100px;
+      border:0.2px solid black;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      background-size: cover;
+      backface-visibility: visible;
+      margin-top: 0.2rem;
+      
+      margin-left: 8px;
+  }
+  .cont-1{
+    margin-top: 0.6rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 90vw;
+    padding-top: 1rem;
+    padding-right: 5vw;
+    flex-wrap: wrap;
+    overflow-x: scroll;
+  }
+  .containeer2{
+    width: 90vw;
+  }
+  
+  .a{
+    font-family: Martel;
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .b{
+    font-family: Martel;
+    font-weight: 700;
+    font-size: 0.3rem;
+  }
+  
+}

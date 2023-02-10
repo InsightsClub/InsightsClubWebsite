@@ -51,7 +51,12 @@ function EventSlides() {
       axios
         .get(`${eventUrl}/all`)
         .then((res) => {
-          const events = res.data.events;
+            const events = res.data.events;
+            events?.sort((a, b) => {
+              let da = new Date(a.date),
+                db = new Date(b.date);
+              return db - da;
+            });
           const _upcoming = events.find((event) => event.status === "upcoming");
           const _ongoing = events.find((event) => event.status === "ongoing");
           const _past = events.find((event) => event.status === "past");

@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import "./Profile.css";
 import Header from "../../components/Profile/Header/Header";
-import EditProfile from "../../components/Profile/EditProfile/EditProfile";
+// import EditProfile from "../../components/Profile/EditProfile/EditProfile";
 import Blogs from "../../components/Profile/Blogs/Blogs";
 import Events from "../../components/Profile/Events/Events";
 import Footer from "../../components/Footer/Footer";
@@ -15,7 +15,7 @@ function Profile() {
 		<Fragment>
 			<div className='profile-main-container'>
 				<div className='profile-main-header'>
-					<Header user={cookies.user} />
+					<Header user={cookies} />
 					<div className='profile-main-navbar'>
 						<div
 							className='profile-main-navbar-blog'
@@ -33,7 +33,6 @@ function Profile() {
 					<div className='Header-profile-line'></div>
 					{state === "BLOGS" ? <Blogs /> : <Events />}
 				</div>
-				<EditProfile />
 			</div>
 			<Footer />
 			<Outlet />

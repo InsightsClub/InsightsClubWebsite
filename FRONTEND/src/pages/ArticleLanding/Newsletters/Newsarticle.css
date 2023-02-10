@@ -1,23 +1,24 @@
 .container2{
-    width: 100%;
+    width: 100vw;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    display: flex;
+    padding:5vw;
+    margin-left: 5vw;
+    
 }
-.txtt{
-    width: fit-content;
-    font-family: 'Mulish';
-    font-size: 55px;
-    letter-spacing: 2px;
-    color:black;
-    font-weight: 600;
-    height: 65px;
-	margin-bottom: 1.2rem;
-}
+
 
 .divv{
     margin-top: 1rem;
-    width: max-content;
+    
+    display: flex;
+    justify-content: space-evenly;
+    width: 90vw;
+    padding-top: 1rem;
+    padding-right: 15vw;
+    flex-wrap: wrap;
+    overflow-x: scroll;
 }
 
 
@@ -25,15 +26,7 @@
     .container2{
         width: 90vw;
     }
-    .txtt{
-        font-family: "Martel";
-        font-size: 55px;
-        font-weight: 600;
-        margin-left: 10px;
-        margin-bottom: 0;
-        height: fit-content;
-
-    }
+    
     .divv{
         margin-top: 0.6rem;
         display: flex;
@@ -43,12 +36,5 @@
         padding-right: 5vw;
         flex-wrap: wrap;
         overflow-x: scroll;
-    }
-    .txtt{
-        font-family: Martel;
-        font-size: 20px;
-        color:black;
-        font-weight: 600;
-        
     }
 }
