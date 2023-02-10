@@ -53,12 +53,12 @@
 	height: 50px;
 	margin-left: 530px;
 }
-.pen input[type="file"] {
+.pen input[type="file"]#img {
 	position: absolute;
 	transform: scale(2);
 	opacity: 0;
 }
-input[type="file"]::-webkit-file-upload-button {
+input[type="file"]#img::-webkit-file-upload-button {
 	cursor: pointer;
 }
 @media (max-width: 600px) {
@@ -109,7 +109,7 @@ input[type="file"]::-webkit-file-upload-button {
 		border-radius: 8px 8px 0px 0px;
 	}
 
-	input {
+	input#img {
 		padding: 0.4rem;
 		border: none;
 		margin-bottom: 1rem;
